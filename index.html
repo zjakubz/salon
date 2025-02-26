@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,379 +11,1014 @@
   />
   <style>
     /* Reset & Base Styles */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      /* Color Palette */
-      --dark: #000000;           /* Black background */
-      --dark-accent: #111111;    /* Slightly lighter black for layering */
-      --primary: #D4AF37;        /* Gold accent */
-      --primary-light: #e5c76b;  /* Lighter gold for hover states */
-      --accent: #FFFFFF;         /* White accent */
-      --light: #FFFFFF;          /* White text */
-      --light-muted: rgba(255, 255, 255, 0.7); /* Muted white for secondary text */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      /* UI Elements */
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      
-      /* Transitions & Effects */
-      --blur: 10px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      
-      /* Spacing */
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 2rem;
-      --space-lg: 4rem;
-      --space-xl: 8rem;
-      
-      /* Typography */
-      --font-size-xs: 0.875rem;
-      --font-size-sm: 1rem;
-      --font-size-md: 1.25rem;
-      --font-size-lg: 2rem;
-      --font-size-xl: 3rem;
-      --font-size-xxl: 4rem;
-      
-      /* Line Heights */
-      --line-height-tight: 1.2;
-      --line-height-normal: 1.5;
-      --line-height-loose: 1.8;
-      
-      /* Border Radius */
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 16px;
-      --radius-full: 999px;
-      
-      /* Loader */
-      --loader-size: 50px;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-    
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--dark);
-      color: var(--light);
-      overflow-x: hidden;
-      line-height: var(--line-height-normal);
-      font-weight: 300;
-    }
-    
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition);
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 600;
-      line-height: var(--line-height-tight);
-      margin-bottom: var(--space-md);
-    }
-    
-    h1 {
-      font-size: var(--font-size-xxl);
-    }
-    
-    h2 {
-      font-size: var(--font-size-xl);
-    }
-    
-    h3 {
-      font-size: var(--font-size-lg);
-    }
-    
-    p {
-      margin-bottom: var(--space-md);
-    }
-    
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 var(--space-md);
-    }
-    
-    .container.is--full {
-      max-width: 100%;
-    }
-    
-    /* Section Styles */
-    section {
-      padding: var(--space-xl) 0;
-      position: relative;
-    }
-    
-    .section-header {
-      margin-bottom: var(--space-lg);
-      text-align: center;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .section-title {
-      margin-bottom: var(--space-sm);
-    }
-    
-    .section-subtitle {
-      color: var(--light-muted);
-      font-size: var(--font-size-md);
-    }
-    
-    /* Gradient Text */
-    .gradient-text {
-      background: linear-gradient(90deg, var(--primary), var(--primary-light));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+:root {
+  /* Color Palette */
+  --dark: #000000;           /* Black background */
+  --dark-accent: #111111;    /* Slightly lighter black for layering */
+  --primary: #D4AF37;        /* Gold accent */
+  --primary-light: #e5c76b;  /* Lighter gold for hover states */
+  --accent: #FFFFFF;         /* White accent */
+  --light: #FFFFFF;          /* White text */
+  --light-muted: rgba(255, 255, 255, 0.7); /* Muted white for secondary text */
 
-    /* Glass Card */
-    .glass-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--glass-shadow);
-      transition: var(--transition);
-      padding: var(--space-md);
-    }
-    
-    .glass-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 42px rgba(0, 0, 0, 0.2);
-      border-color: rgba(212, 175, 55, 0.3);
-    }
+  /* UI Elements */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions & Effects */
+  --blur: 10px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  
+  /* Typography */
+  --font-size-xs: 0.875rem;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 3rem;
+  --font-size-xxl: 4rem;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-loose: 1.8;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+  
+  /* Loader */
+  --loader-size: 50px;
+}
 
-    /* Button Styles */
-    button {
-      all: unset;
-      cursor: pointer;
-      position: relative;
-      background: var(--primary);
-      border-radius: var(--radius-full);
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-      transition: var(--transition);
-      padding: var(--space-sm) var(--space-md);
-      font-weight: 500;
-      text-align: center;
-      color: var(--dark);
-      font-size: var(--font-size-sm);
-    }
-    
-    button:hover {
-      transform: translateY(-2px);
-      background: var(--primary-light);
-      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
-    }
-    
-    button:active {
-      transform: translateY(0);
-    }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-    /* Header & Navigation */
-    .header {
-      z-index: 110;
-      padding-top: var(--space-sm);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      transition: var(--transition);
-    }
-    
-    .header.scrolled {
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(var(--blur));
-      padding: var(--space-xs) 0;
-    }
-    
-    .nav-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: var(--space-sm) 0;
-    }
-    
-    .nav-logo-row {
-      pointer-events: auto;
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-    }
-    
-    .nav-logo__wordmark {
-      width: 120px;
-      font-size: var(--font-size-lg);
-      font-weight: 700;
-    }
-    
-    .nav-row__right {
-      pointer-events: auto;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    
-    .menu-button {
-      background: transparent;
-      border: none;
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      color: var(--light);
-      box-shadow: none;
-      padding: var(--space-xs);
-    }
-    
-    .menu-button:hover {
-      background: transparent;
-      box-shadow: none;
-      color: var(--primary);
-    }
-    
-    .menu-button-text {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      height: 1.5em;
-    }
-    
-    .menu-button-text p {
-      margin: 0;
-      transition: var(--transition);
-    }
-    
-    .menu-button[aria-expanded="true"] .menu-button-text p:first-child {
-      transform: translateY(-100%);
-    }
-    
-    .menu-button[aria-expanded="false"] .menu-button-text p:last-child {
-      transform: translateY(100%);
-    }
-    
-    .icon-wrap {
-      transition: transform 0.4s cubic-bezier(0.65, 0.05, 0, 1);
-    }
-    
-    .menu-button[aria-expanded="true"] .icon-wrap {
-      transform: rotate(45deg);
-    }
-    
-    /* Navigation Menu */
-    .nav {
-      z-index: 100;
-      width: 100%;
-      height: 100vh;
-      position: fixed;
-      inset: 0;
-      display: none;
-    }
-    
-    .nav[data-nav="open"] {
-      display: block;
-    }
-    
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      cursor: pointer;
-    }
-    
-    .menu {
-      position: relative;
-      width: 35em;
-      max-width: 90%;
-      height: 100%;
-      margin-left: auto;
-      overflow: auto;
-      padding: var(--space-lg) var(--space-md);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-      background-color: var(--dark-accent);
-    }
-    
-    .menu-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .menu-list-item {
-      margin-bottom: var(--space-md);
-    }
-    
-    .menu-link {
-      text-decoration: none;
-      color: var(--light);
-      font-size: var(--font-size-lg);
-      text-transform: uppercase;
-      transition: var(--transition);
-      display: block;
-      padding: var(--space-xs) 0;
-      position: relative;
-    }
-    
-    .menu-link:hover {
-      color: var(--primary);
-      transform: translateX(var(--space-xs));
-    }
-    
-    .menu-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: var(--transition);
-    }
-    
-    .menu-link:hover::after {
-      width: 50px;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  overflow-x: hidden;
+  line-height: var(--line-height-normal);
+  font-weight: 300;
+}
 
-
-/* Glass Effect for Top Navigation */
-.header {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  padding-top: var(--space-xs);
+a {
+  text-decoration: none;
+  color: inherit;
   transition: var(--transition);
 }
 
-.header.scrolled {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(var(--blur));
-  padding: var(--space-xs) 0;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container.is--full {
+  max-width: 100%;
+}
+
+/* Section Styles */
+section {
+  padding: var(--space-xl) 0;
+  position: relative;
+
+  
+}/* Section Title Fix */
+.section-title {
+  margin-bottom: var(--space-sm);
+  display: block !important; 
+  position: relative;
+  opacity: 1 !important; /* Force opacity to be visible */
+  transform: translateY(0) !important; /* Reset any transform that might be hiding it */
+  visibility: visible !important; /* Ensure visibility */
+}
+
+/* Force initial visibility of header content */
+.section-header {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: visible !important; /* Change from hidden to visible */
+}
+
+.section-subtitle {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Remove or modify the animation classes that may be hiding titles */
+.section-header.in-view .section-title,
+.section-header.in-view .section-subtitle {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Additional fallback for AOS animations */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+/* Partners Section */
+.footer-partners {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.partner-title {
+  color: var(--light);
+  font-size: 0.9rem;
+  margin-right: 1.5rem;
+  min-width: 120px;
+}
+
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.partner-logo {
+  color: var(--light-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.partner-logo:hover {
+  color: var(--primary);
+}
+
+.see-all {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-left: 1.5rem;
+  transition: var(--transition);
+}
+
+.see-all:hover {
+  color: var(--primary-light);
+}
+
+/* Copyright Section */
+.footer-copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright-text {
+  color: var(--light-muted);
+  font-size: 0.85rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-legal a {
+  color: var(--light-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.footer-legal a:hover {
+  color: var(--primary);
+}
+
+/* Page Loader */
+.page-loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  transform: translateX(0);
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0s linear 0.5s;
+}
+
+.page-loader.is-invisible {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-loader--bg-a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+}
+
+.page-loader--bg-b {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+}
+
+.page-loader--and {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.page-loader--baseline {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  text-align: center;
+  color: var(--light);
+  transform: translateY(80px);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.page-loader--and path {
+  stroke: var(--light);
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-dashoffset: 286;
+  stroke-dasharray: 286, 286;
+}
+
+/* Custom Cursor Styles */
+.cursor-dot,
+.cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+
+
+.cursor-circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border 0.3s ease;
+  background-color: transparent; /* Ensure transparent background */
+}
+
+/* Hide cursor on touch devices */
+html.has-custom-cursor {
+  cursor: none;
+}
+
+html.has-custom-cursor a,
+html.has-custom-cursor button,
+html.has-custom-cursor .glass-card,
+html.has-custom-cursor .ln-menu__item,
+html.has-custom-cursor .gallery-item,
+html.has-custom-cursor .service-card,
+html.has-custom-cursor input,
+html.has-custom-cursor select,
+html.has-custom-cursor .menu-link,
+html.has-custom-cursor .slider-arrow {
+  cursor: none !important;
+}
+
+/* Custom states for cursor */
+.cursor-dot.hover,
+.cursor-dot.active {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: var(--primary-light);
+}
+
+.cursor-circle.hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(212, 175, 55, 0.8);
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+.cursor-circle.active {
+  width: 30px;
+  height: 30px;
+  border-width: 3px;
+  border-color: rgba(212, 175, 55, 1);
+  background-color: transparent; /* Keep it transparent when active */
+}
+
+/* Hide default cursor for mouse devices only */
+@media (pointer: fine) {
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* Responsive Bottom Navigation */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  height: 65px;
+  transition: all 0.3s ease;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-item.active {
+  color: var(--primary);
+}
+
+.nav-icon {
+  position: relative;
+  font-size: 22px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-label {
+  font-size: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+.nav-item.active .nav-icon {
+  transform: translateY(-4px) scale(1.1);
+}
+
+.nav-item.active .nav-label {
+  opacity: 1;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 20%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 2px 2px 0 0;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.nav-item:active .nav-icon {
+  transform: scale(0.9);
+}
+
+.nav-item.center-item {
+  position: relative;
+}
+
+.center-icon-bg {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.center-item .nav-icon {
+  font-size: 24px;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.center-item:active .center-icon-bg {
+  transform: translateX(-50%) scale(0.95);
+}
+
+
+
+
+
+
+
+
+
+
+/* Media queries */
+@media (max-width: 1200px) {
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .brand-column {
+    grid-column: span 3;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 991px) {
+  :root {
+    --font-size-xxl: 3rem;
+    --font-size-xl: 2.5rem;
+  }
+  
+  section {
+    padding: var(--space-lg) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-xxl: 2.5rem;
+    --font-size-xl: 2rem;
+    --font-size-lg: 1.5rem;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .services-grid, .gallery-grid, .contact-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-content {
+    text-align: center;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .brand-column {
+    grid-column: span 2;
+  }
+  
+  .footer-partners {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .partner-logos {
+    justify-content: flex-start;
+  }
+  
+  .footer-copyright {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .testimonials-slider {
+    padding: 0 30px;
+  }
+  
+  .testimonial-wrapper {
+    padding: var(--space-md);
+  }
+  
+  .testimonial-text {
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Show mobile navigation */
+  
+  
+  .bottom-nav {
+    display: block;
+  }
+  
+  main {
+    padding-bottom: 70px;
+  }
+  
+  /* Mobile-specific hero adjustments */
+  #hero {
+    min-height: 80vh;
+    align-items: flex-start;
+    padding-top: 25vh;
+  }
+  
+  .hero-content {
+    text-align: left;
+    padding: 0 1.5rem;
+  }
+  
+  .hero-background-container {
+    height: 65%;
+    bottom: 0;
+    top: auto;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+  }
+  
+  .hero-overlay {
+    background: linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0.8) 0%, 
+      rgba(0, 0, 0, 0.6) 40%, 
+      rgba(0, 0, 0, 0.3) 100%);
+  }
+  
+  /* Form improvements */
+  .form-input {
+    font-size: 16px; /* Prevent zooming on iOS */
+    padding: 12px;
+  }
+  
+  /* Footer spacing for bottom nav */
+  .footer-copyright {
+    padding-bottom: 70px;
+  }
+}
+@media (max-width: 576px) {
+  :root {
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-md);
+  }
+  
+  .nav-logo__wordmark {
+    width: 100px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .brand-column {
+    grid-column: span 1;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .newsletter-button {
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 15px;
+  }
+  
+  .testimonials-slider {
+    padding: 0 20px;
+  }
+  
+  .slider-arrow {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .slider-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card {
+    padding: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation keyframes */
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    background-position: 0% 0%;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .hero-background {
+    transform: none !important;
+  }
+}
+  
+
+.section-header.in-view .section-title {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.section-header.in-view .section-subtitle {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition);
+  padding: var(--space-md);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.2);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Updated Modern Button Styles */
+button {
+  position: relative;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dark);
+  background: var(--primary);
+  border: none;
+  border-radius: 50px; /* More pronounced rounded corners */
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+  outline: none;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  transform: translateY(-4px);
+  background: var(--primary-light);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+  transition-duration: 0.1s;
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Additional hover effect for interactive states */
+button span {
+  position: relative;
+  z-index: 1;
+}
+
+button:hover span {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.header {
+    z-index: 110;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .header.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    position: relative;
+  }
+  
+  .nav-logo-row {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+  
+  .nav-logo__wordmark {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  /* Current Time Display */
+  .current-time {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--light);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  .time-display {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--light);
+    margin-bottom: 2px;
+  }
+  
+  .date-display {
+    font-size: 0.8rem;
+    color: var(--light-muted);
+    letter-spacing: 1px;
+  }
+  
+  /* Hamburger Menu Button in header */
+  .menu-button-header {
+    all: unset;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  
+  .menu-button-header:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .menu-button-header .icon-wrap {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.65, 0.05, 0, 1);
+  }
+  
+  /* Remove the original fixed menu button */
+  .menu-button[aria-expanded="false"],
+  .menu-button[aria-expanded="true"] {
+    display: none;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .nav-logo__wordmark {
+      font-size: 1.4rem;
+    }
+    
+    .time-display {
+      font-size: 1.1rem;
+    }
+    
+    .date-display {
+      font-size: 0.75rem;
+    }
+    
+    .menu-button-header {
+      width: 38px;
+      height: 38px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .current-time {
+      position: static;
+      transform: none;
+      order: 2;
+    }
+    
+    .nav-row {
+      padding: 12px 0;
+    }
+    
+    .nav-logo__wordmark {
+      font-size: 1.3rem;
+    }
+    
+    .time-display {
+      font-size: 1rem;
+    }
+    
+    .date-display {
+      font-size: 0.7rem;
+    }
+    
+    .menu-button-header {
+      width: 36px;
+      height: 36px;
+    }
+  }
 
 /* Modern Hamburger Menu */
 .menu-button {
@@ -541,6 +1176,21 @@
   width: 50px;
 }
 
+.menu-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-link:hover::after {
+  width: 100%;
+}
+
 /* Menu header and footer */
 .menu-header {
   padding-bottom: var(--space-md);
@@ -563,7 +1213,7 @@
   border: none;
   color: var(--light);
   cursor: pointer;
-  padding: var(--space-xs);
+  padding: 0;
   transition: var(--transition);
   display: flex;
   align-items: center;
@@ -611,537 +1261,90 @@
   color: var(--light-muted);
   font-size: var(--font-size-xs);
 }
-    
-
-    /* Hero Section */
-    #hero {
-      height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 0;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: var(--space-md);
-      max-width: 650px;
-    }
-    
-    .hero-title {
-      margin-bottom: var(--space-md);
-      line-height: 1.1;
-    }
-    
-    .hero-description {
-      font-size: var(--font-size-md);
-      margin-bottom: var(--space-lg);
-      color: var(--light-muted);
-      line-height: var(--line-height-loose);
-    }
-    
-    .hero-background {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 65%;
-      height: 100%;
-      background: url('https://via.placeholder.com/1200x800?text=Luxury+Nails') no-repeat center/cover;
-      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-    }
-    
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 65%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--dark), transparent, rgba(212,175,55,0.2));
-      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    /* Services Section */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-    
-    .service-card {
-      padding: var(--space-lg) var(--space-md);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100%;
-    }
-    
-    .service-icon {
-      font-size: var(--font-size-xl);
-      margin-bottom: var(--space-md);
-      color: var(--primary);
-    }
-    
-    .service-title {
-      margin-bottom: var(--space-sm);
-      font-size: var(--font-size-md);
-    }
-    
-    .service-description {
-      color: var(--light-muted);
-      line-height: var(--line-height-loose);
-    }
-
-    /* Gallery Section */
-    #gallery {
-      background-color: var(--dark-accent);
-    }
-    
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-md);
-    }
-    
-    .gallery-item {
-      height: 360px;
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-    }
-    
-    .gallery-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition-slow);
-    }
-    
-    .gallery-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      align-items: flex-end;
-      padding: var(--space-md);
-    }
-    
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-    }
-    
-    .gallery-item:hover .gallery-image {
-      transform: scale(1.05);
-    }
-    
-    .gallery-title {
-      color: var(--light);
-      margin-bottom: 0;
-    }
-
-  /* Fixed Testimonial Slider Styles */
-.testimonials-slider {
-  position: relative;
-  display: flex;
-  align-items: center;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 40px;
-  overflow: hidden; /* Ensure no overflow */
-}
-
-.slider-content {
-  width: 100%; /* Full width of container */
-  position: relative;
-  overflow: hidden; /* Critical: Hide overflow */
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 500%; /* 100% * number of slides (5) */
-}
-
-.testimonial-slide {
-  width: 20%; /* 100% divided by number of slides (5) */
-  flex-shrink: 0; /* Prevent slides from shrinking */
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
-/* Testimonial Card Styling */
-.testimonial-wrapper {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--glass-shadow);
-  padding: var(--space-lg);
-  position: relative;
-  transition: var(--transition);
-  transform-origin: center;
-  transform: scale(0.98);
-  opacity: 0.9;
-  height: 100%;
-}
-
-.slider-track .testimonial-slide.active .testimonial-wrapper {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.quote-icon {
-  position: absolute;
-  top: -25px;
-  left: 30px;
-  font-size: var(--font-size-xl);
-  color: var(--primary);
-}
-
-.testimonial-text {
-  font-size: var(--font-size-md);
-  margin-bottom: var(--space-md);
-  line-height: var(--line-height-loose);
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-}
-
-.author-image {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: var(--space-sm);
-  border: 2px solid var(--primary);
-}
-
-.author-details {
-  font-weight: 500;
-}
-
-.author-name {
-  color: var(--primary);
-}
-
-.author-title {
-  font-size: var(--font-size-xs);
-  color: var(--light-muted);
-}
-
-/* Minimalist Arrow Styling */
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--light-muted);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-  background: transparent;
-}
-
-.slider-arrow:hover {
-  color: var(--primary);
-}
-
-.slider-prev {
-  left: -10px;
-}
-
-.slider-next {
-  right: -10px;
-}
-
-/* Pagination Dots */
-.slider-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.pagination-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.pagination-dot.active {
-  background-color: var(--primary);
-  transform: scale(1.2);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .testimonials-slider {
-    padding: 0 30px;
-  }
-  
-  .testimonial-wrapper {
-    padding: var(--space-md);
-  }
-  
-  .testimonial-text {
-    font-size: var(--font-size-sm);
-  }
-}
-
-@media (max-width: 576px) {
-  .testimonials-slider {
-    padding: 0 20px;
-  }
-  
-  .slider-arrow {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .slider-arrow svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-    /* Booking Section */
-    #booking {
-      background-color: var(--dark-accent);
-    }
-    
-    .booking-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-lg);
-      align-items: center;
-    }
-    
-    .booking-content h2 {
-      margin-bottom: var(--space-md);
-    }
-    
-    .booking-content p {
-      color: var(--light-muted);
-      margin-bottom: var(--space-sm);
-      line-height: var(--line-height-loose);
-    }
-    
-    .booking-form {
-      padding: var(--space-lg);
-    }
-    
-    .form-group {
-      margin-bottom: var(--space-md);
-    }
-    
-    .form-input {
-      width: 100%;
-      padding: var(--space-sm);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-md);
-      color: var(--light);
-      font-family: 'Poppins', sans-serif;
-      font-size: var(--font-size-sm);
-      transition: var(--transition);
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: rgba(255,255,255,0.07);
-    }
-    
-    .form-input::placeholder {
-      color: rgba(255,255,255,0.5);
-    }
-    
-    select.form-input {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgba(255,255,255,0.5)' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      padding-right: 2.5rem;
-    }
-    
-    .booking-form button {
-      width: 100%;
-      margin-top: var(--space-sm);
-    }
-
-    /* Contact Section */
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-md);
-      margin-bottom: var(--space-lg);
-    }
-    
-    .contact-item {
-      padding: var(--space-md);
-      text-align: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .contact-icon {
-      font-size: var(--font-size-lg);
-      color: var(--primary);
-      margin-bottom: var(--space-sm);
-    }
-    
-    .contact-title {
-      margin-bottom: var(--space-xs);
-      font-size: var(--font-size-md);
-    }
-    
-    .contact-detail {
-      color: var(--light-muted);
-      line-height: var(--line-height-loose);
-      margin-bottom: 0;
-    }
-
-    
-
-    /* Page Loader */
-    .page-loader {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 999999;
-      top: 0;
-      left: 0;
-      transform: translateX(0);
-      opacity: 1;
-      transition: opacity 0.5s ease, transform 0s linear 0.5s;
-    }
-    
-    .page-loader.is-invisible {
-  transform: translateX(100%);
-  opacity: 0;
-  pointer-events: none; /* Allow clicks to pass through */
-}
-
-    
-    .page-loader--bg-a {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--primary);
-    }
-    
-    .page-loader--bg-b {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--dark);
-    }
-    
-    .page-loader--and {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      width: 100px;
-      height: 100px;
-    }
-    
-    .page-loader--baseline {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      text-align: center;
-      color: var(--light);
-      transform: translateY(80px);
-      font-size: 0.625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5em;
-    }
-    
-    .page-loader--and path {
-      stroke: var(--light);
-      fill: none;
-      stroke-width: 6;
-      stroke-linecap: round;
-      stroke-miterlimit: 10;
-      stroke-dashoffset: 286;
-      stroke-dasharray: 286, 286;
-    }
-
-    :root {
-  --dark: #000000;
-  --dark-accent: #111111;
-  --primary: #D4AF37;
-  --primary-light: #e5c76b;
-}
 
 /* Hero Section */
+
+
 #hero {
-  /* Make the hero take full screen height */
   min-height: 100vh;
-  /* Position relative so we can absolutely-position the menu */
   position: relative;
-  /* Center all child content (the .hero-content) both vertically and horizontally */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* For horizontal text centering */
   text-align: center;
-
-  /* Example background (replace with your own) */
-  background: url('https://via.placeholder.com/1200x800?text=Luxury+Nails') no-repeat center/cover;
+  padding: 0;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-md);
   max-width: 650px;
   margin: 0 auto;
-  /* Optional padding if you want some space around the text */
-  padding: 1rem;
-  /* If you want the text strictly centered, ensure text-align is center here as well */
   text-align: center;
-  z-index: 1; /* so it stays above any background overlay */
 }
 
-/* Position the circular menu at the bottom */
+.hero-title {
+  margin-bottom: var(--space-md);
+  line-height: 1.1;
+}
+
+.hero-description {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-lg);
+  color: var(--light-muted);
+  line-height: var(--line-height-loose);
+}
+
+.hero-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 1;
+}
+
 .hero-footer-menu {
   position: absolute;
-  bottom: 20px;  /* Adjust vertical offset as needed */
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;   /* Ensures it appears above the background */
+  z-index: 10;
 }
 
-/* =============== Circular Menu Styles =============== */
+/* Circular Menu Styles */
 .ln-menu {
   display: flex;
   position: relative;
@@ -1232,8 +1435,387 @@
   transition-delay: 0.25s;
 }
 
+/* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
 
+.service-card {
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
 
+.service-icon {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+  color: var(--primary);
+}
+
+.service-title {
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-md);
+}
+
+.service-description {
+  color: var(--light-muted);
+  line-height: var(--line-height-loose);
+}
+
+/* Gallery Section */
+#gallery {
+  background-color: var(--dark-accent);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.gallery-item {
+  height: 360px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-md);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.gallery-title {
+  color: var(--light);
+  margin-bottom: 0;
+}
+/* Testimonials Slider */
+.testimonials-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 60px; /* Increased padding for arrows */
+    overflow: hidden;
+}
+
+.slider-content {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 500%;
+}
+
+.testimonial-slide {
+    width: 20%;
+    flex-shrink: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.testimonial-wrapper {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    padding: var(--space-lg);
+    position: relative;
+    transition: var(--transition);
+    transform-origin: center;
+    transform: scale(0.98);
+    opacity: 0.9;
+    height: 100%;
+}
+
+.slider-track .testimonial-slide.active .testimonial-wrapper {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -25px;
+    left: 30px;
+    font-size: var(--font-size-xl);
+    color: var(--primary);
+}
+
+.testimonial-text {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-md);
+    line-height: var(--line-height-loose);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: var(--space-sm);
+    border: 2px solid var(--primary);
+}
+
+.author-details {
+    font-weight: 500;
+}
+
+.author-name {
+    color: var(--primary);
+}
+
+.author-title {
+    font-size: var(--font-size-xs);
+    color: var(--light-muted);
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1); /* Gold-tinted background */
+    border-radius: 50%;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.slider-arrow:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary);
+    stroke-width: 2;
+}
+
+.slider-prev {
+    left: 0;
+}
+
+.slider-next {
+    right: 0;
+}
+
+/* Entire Testimonial Slider Pagination Styles */
+.slider-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.pagination-dot {
+    display: block; /* Ensure block display */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3); /* Light grey for all dots */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 1; /* Ensure full visibility */
+}
+
+.pagination-dot.active {
+    width: 16px;
+    height: 10px;
+    background-color: var(--primary); /* Gold color for active dot */
+    border-radius: 10px;
+    transform: scale(1.2);
+}
+
+.pagination-dot:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* Lighter on hover */
+}
+
+/* Ensure visibility on dark backgrounds */
+section:nth-child(even) .pagination-dot {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+section:nth-child(even) .pagination-dot.active {
+    background-color: var(--primary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .testimonials-slider {
+        padding: 0 40px;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slider-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .pagination-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .pagination-dot.active {
+        width: 16px;
+    }
+}
+/* Booking Section */
+#booking {
+  background-color: var(--dark-accent);
+}
+
+.booking-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.booking-content h2 {
+  margin-bottom: var(--space-md);
+}
+
+.booking-content p {
+  color: var(--light-muted);
+  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-loose);
+}
+
+.booking-form {
+  padding: var(--space-lg);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-sm);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  color: var(--light);
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-sm);
+  transition: var(--transition);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255,255,255,0.07);
+}
+
+.form-input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgba(255,255,255,0.5)' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.booking-form button {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* Contact Section */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.contact-item {
+  padding: var(--space-md);
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon {
+  font-size: var(--font-size-lg);
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-title {
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-md);
+}
+
+.contact-detail {
+  color: var(--light-muted);
+  line-height: var(--line-height-loose);
+  margin-bottom: 0;
+}
 
 /* Footer Styles */
 .footer-section {
@@ -1242,70 +1824,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Newsletter Section */
-.footer-newsletter {
-  padding: 3rem 0;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.newsletter-container {
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-.newsletter-form {
-  display: flex;
-  position: relative;
-}
-
-.newsletter-input {
-  flex: 1;
-  padding: 15px 20px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--light);
-  font-size: 1rem;
-  outline: none;
-  transition: var(--transition);
-}
-
-.newsletter-input:focus {
-  border-color: var(--primary);
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.newsletter-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.newsletter-button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  padding: 0 25px;
-  border: none;
-  background-color: var(--primary);
-  color: var(--dark);
-  font-weight: 500;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 0.875rem;
-  letter-spacing: 1px;
-}
-
-.newsletter-button:hover {
-  background-color: var(--primary-light);
-  transform: translateY(-2px);
-}
-
-/* Main Footer */
 .footer-main {
   background-color: #111111;
   padding: 5rem 0 2rem;
@@ -1368,1956 +1886,975 @@
 
 .footer-links a {
   color: var(--light-muted);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: var(--transition);
 }
 
-.footer-links a:hover {
-  color: var(--primary);
-  padding-left: 5px;
+
+
+
+/* Alternating Section Colors */
+section:nth-child(even) {
+  background-color: var(--light);
+  color: var(--dark);
 }
 
-/* Partners Section */
-.footer-partners {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+section:nth-child(even) .section-title,
+section:nth-child(even) h2, 
+section:nth-child(even) h3 {
+  color: var(--dark);
 }
 
-.partner-title {
+section:nth-child(even) .section-subtitle,
+section:nth-child(even) p {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+section:nth-child(even) .glass-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+section:nth-child(even) .service-description,
+section:nth-child(even) .testimonial-text {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Keep specific sections (like hero) black regardless of position */
+#hero {
+  background-color: var(--dark);
   color: var(--light);
-  font-size: 0.9rem;
-  margin-right: 1.5rem;
-  min-width: 120px;
 }
 
-.partner-logos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  flex: 1;
+/* Section Heading Links */
+.section-title {
+  position: relative;
+  display: inline-block;
 }
 
-.partner-logo {
-  color: var(--light-muted);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: var(--transition);
+.section-title .section-anchor {
+  opacity: 0;
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  font-size: 18px;
+  transition: opacity 0.2s ease;
 }
 
-.partner-logo:hover {
+.section-title:hover .section-anchor {
+  opacity: 1;
+}
+
+section:nth-child(even) .section-anchor {
   color: var(--primary);
 }
 
-.see-all {
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  margin-left: 1.5rem;
-  transition: var(--transition);
-}
 
-.see-all:hover {
-  color: var(--primary-light);
-}
-
-/* Copyright Section */
-.footer-copyright {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.copyright-text {
-  color: var(--light-muted);
-  font-size: 0.85rem;
-}
-
-.footer-legal {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.footer-legal a {
-  color: var(--light-muted);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: var(--transition);
-}
-
-.footer-legal a:hover {
-  color: var(--primary);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-  .footer-content {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .brand-column {
-    grid-column: span 3;
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .brand-column {
-    grid-column: span 2;
-  }
-  
-  .footer-partners {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .partner-logos {
-    justify-content: flex-start;
-  }
-  
-  .footer-copyright {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 576px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .brand-column {
-    grid-column: span 1;
-  }
-  
-  .newsletter-form {
-    flex-direction: column;
-  }
-  
-  .newsletter-button {
-    position: relative;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 15px;
-  }
-}
-
-
-:root {
-  --dark: #000000;
-  --dark-accent: #111111;
-  --primary: #D4AF37;
-  --primary-light: #e5c76b;
-}
-
-
-/* Default: hide the mobile bottom nav */
-.bottom-nav {
-  display: none;
-}
-
-/* Only show the bottom navigation on small screens */
-@media (max-width: 767px) {
-  /* Hide the existing main navigation if desired */
-  .header,
-  .nav {
-    display: none;
-  }
-  
-  .bottom-nav {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: #D4AF37;  /* Change to your desired background color */
-    padding: 0.5rem 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .bottom-nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .bottom-nav li {
-    text-align: center;
-  }
-  
-  .bottom-nav a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: white; /* Customize as needed */
-    position: relative;
-    padding: 5px 0;
-  }
-  
-  .bottom-nav svg {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 4px;
-    transition: transform 0.3s ease;
-  }
-  
-  .bottom-nav a.active svg {
-    transform: translateY(-4px);
-  }
-  
-  .link-text {
-    font-size: 0.75rem;
-    transition: opacity 0.3s ease;
-  }
-  
-  /* Example styling for the animated background (optional) */
-  .link-background {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 33.33%; /* Adjust based on number of nav items */
-    height: 4px;
-    background: #111111;  /* Update to your desired active indicator color */
-    transition: transform 0.3s cubic-bezier(0.7, 0, 0.38, 0.86);
-    z-index: 0;
-  }
-
-
-}
-
-
-
-
-    /* Media Queries */
-    @media (max-width: 991px) {
-      :root {
-        --font-size-xxl: 3rem;
-        --font-size-xl: 2.5rem;
-      }
-      
-      section {
-        padding: var(--space-lg) 0;
-      }
-      
-      .hero-background, .hero-overlay {
-        width: 50%;
-        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
-      }
-    }
-    
-    @media (max-width: 767px) {
-      :root {
-        --font-size-xxl: 2.5rem;
-        --font-size-xl: 2rem;
-        --font-size-lg: 1.5rem;
-      }
-      
-      .hero-background, .hero-overlay {
-        width: 100%;
-        clip-path: none;
-        opacity: 0.3;
-      }
-      
-      .hero-content {
-        max-width: 100%;
-        text-align: center;
-      }
-      
-      .services-grid, .gallery-grid, .contact-info {
-        grid-template-columns: 1fr;
-      }
-      
-      .booking-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .booking-content {
-        text-align: center;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      :root {
-        --space-md: 1.5rem;
-        --space-lg: 3rem;
-        --space-xl: 5rem;
-      }
-      
-      .section-header {
-        margin-bottom: var(--space-md);
-      }
-      
-      .nav-logo__wordmark {
-        width: 100px;
-      }
-    }
-
-    .cursor-dot,
-  .cursor-circle {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    will-change: transform;
-  }
-  
-  .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #D4AF37; /* Gold color matching your theme */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
-  }
-  
-  .cursor-circle {
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(212, 175, 55, 0.5); /* Semi-transparent gold */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, border 0.3s ease;
-  }
-  
-  /* Hide cursor on touch devices */
-  html.has-custom-cursor {
-    cursor: none;
-  }
-  
-  html.has-custom-cursor a,
-  html.has-custom-cursor button,
-  html.has-custom-cursor .glass-card,
-  html.has-custom-cursor .ln-menu__item,
-  html.has-custom-cursor .gallery-item,
-  html.has-custom-cursor .service-card,
-  html.has-custom-cursor input,
-  html.has-custom-cursor select,
-  html.has-custom-cursor .menu-link,
-  html.has-custom-cursor .slider-arrow {
-    cursor: none !important;
-  }
-  
-  /* Custom states for cursor */
-  .cursor-dot.hover,
-  .cursor-dot.active {
-    transform: translate(-50%, -50%) scale(1.5);
-    background-color: #e5c76b; /* Lighter gold when hovering interactive elements */
-  }
-  
-  .cursor-circle.hover {
-    width: 60px;
-    height: 60px;
-    border-color: rgba(212, 175, 55, 0.8);
-    background-color: rgba(212, 175, 55, 0.05);
-  }
-  
-  .cursor-circle.active {
-    width: 30px;
-    height: 30px;
-    border-width: 3px;
-    border-color: rgba(212, 175, 55, 1);
-  }
-  
-  /* Hide default cursor for mouse devices only */
-  @media (pointer: fine) {
-    html.has-custom-cursor * {
-      cursor: none !important;
-    }
-  }
-  
-  /* Additional animation classes */
-  .hover-link {
-    cursor: none;
-  }
-  
-  a:hover ~ .cursor-dot,
-  button:hover ~ .cursor-dot {
-    transform: translate(-50%, -50%) scale(1.5);
-    background-color: var(--primary-light);
-  }
-  
-  a:hover ~ .cursor-outline,
-  button:hover ~ .cursor-outline {
-    transform: translate(-50%, -50%) scale(1.5);
-    border-color: rgba(212, 175, 55, 0.8);
-  }
-  
-  
-  
-  /* Animated underline effect for menu links */
-  .menu-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  
-  .menu-link:hover::after {
-    width: 100%;
-  }
-  
-  /* Animated section headers */
-  .section-header {
-    overflow: hidden;
-  }
-  
-  .section-title,
-  .section-subtitle {
-    transform: translateY(30px);
-    opacity: 0;
-    transition: transform 0.8s ease, opacity 0.8s ease;
-  }
-  
-  .section-header.in-view .section-title {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  .section-header.in-view .section-subtitle {
-    transform: translateY(0);
-    opacity: 1;
-    transition-delay: 0.2s;
-  }
-  
-  
-
-
-
-
-
-
-    /* Base cursor styles */
-    .cursor-dot,
-  .cursor-circle {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    will-change: transform;
-  }
-  
-  .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #D4AF37; /* Gold color matching your theme */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
-  }
-  
-  .cursor-circle {
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(212, 175, 55, 0.5); /* Semi-transparent gold */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, border 0.3s ease;
-  }
-  
-  /* Lens effect wrapper - this provides the lens container */
-  .cursor-lens {
-    position: fixed;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0;
-    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
-    overflow: hidden;
-    transform: translate(-50%, -50%);
-    will-change: transform;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-  }
-  
-  /* Show lens effect when over specific elements */
-  .cursor-lens.active {
-    opacity: 1;
-  }
-  
-  /* Hidden actual content inside the lens */
-  .lens-content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    transform-origin: center center;
-    will-change: transform;
-  }
-  
-  /* Gold shine effect for lens */
-  .cursor-lens::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-      circle at center,
-      rgba(212, 175, 55, 0.1) 0%,
-      rgba(212, 175, 55, 0.05) 40%,
-      transparent 70%
-    );
-    pointer-events: none;
-  }
-  
-  /* Hide default cursor for mouse devices only */
-  @media (pointer: fine) {
-    html.has-custom-cursor * {
-      cursor: none !important;
-    }
-  }
-  
-  /* Different lens types for different content */
-  .lens-type-magnify .lens-content {
-    transform: scale(1.5); /* Magnification level */
-  }
-  
-  .lens-type-color .lens-content {
-    filter: saturate(1.5) contrast(1.2);
-  }
-  
-  .lens-type-tilt .lens-content {
-    transform: perspective(500px) rotateX(5deg) rotateY(5deg);
-  }
-  
-  .lens-type-shine .lens-content {
-    filter: brightness(1.3) contrast(1.1);
-  }
-  
-  /* Special class for gallery items */
-  .gallery-lens-wrapper {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Make lens bigger for certain elements */
-  .big-lens {
-    width: 150px !important;
-    height: 150px !important;
-  }
-  
-  /* Sparkle elements that follow cursor on gold text */
-  .cursor-sparkle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background-color: #D4AF37;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    opacity: 0;
-    animation: sparkle-fade 1.5s ease-out forwards;
-  }
-  
-  @keyframes sparkle-fade {
-    0% {
-      opacity: 0.9;
-      width: 0;
-      height: 0;
-    }
-    70% {
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 0;
-      width: 12px;
-      height: 12px;
-    }
-  }
-
-
-
-
-
-
-
-  /* Modern Hero Background Styles */
-  .hero-background-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-  }
-  
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('your-image-path.jpg'); /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.05); /* Slightly larger for parallax effect */
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform;
-  }
-  
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.7) 40%,
-      rgba(0, 0, 0, 0.4) 70%,
-      rgba(0, 0, 0, 0.3) 100%
-    );
-    z-index: 1;
-  }
-  
-  
-  
-  /* Update hero content to ensure it's above the background */
-  #hero .hero-content {
-    position: relative;
-    z-index: 5;
-  }
-  
-  /* Animations */
-  @keyframes shimmer {
-    0% {
-      opacity: 0;
-      background-position: 0% 0%;
-    }
-    20% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      background-position: 100% 100%;
-    }
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 767px) {
-    .hero-overlay {
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.7) 50%,
-        rgba(0, 0, 0, 0.6) 100%
-      );
-    }
-  }
-</style>
- 
+  </style>
 </head>
-<!-- 1. First, add the AOS library in the head section before your closing </head> tag -->
+<!-- Adding AOS library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
 <body>
+    <!-- Add hero background container -->
+   
+   
 
+  
 
-    <!-- Add this to your hero section, right after the opening <section id="hero"> tag -->
-<div class="hero-background-container">
-    <div class="hero-background" style="background-image: url('https://i.postimg.cc/dt1jjmFG/temp-Image2-Uj38e.avif');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-shimmer"></div>
-  </div>
-    <!-- Načítavač stránky -->
+    <!-- Page Loader -->
     <div class="page-loader">
-      <div class="page-loader--bg-a"></div>
-      <div class="page-loader--bg-b"></div>
-      <div class="page-loader--and">
-        <svg viewBox="0 0 100 100">
-          <path d="M58.6 26.1c.6-3.4.7-6.8-.4-10.2C56 9.1 49.7 5.4 42.7 6.8 36.2 8 31.3 14.3 31.8 21c.4 4.5 2 8.4 6.2 10.8.2.1.5.2.5.5-.1.3-.4.4-.7.5-2.8 1.2-5.5 2.6-8.1 4.1-4 2.3-7.4 5.5-9.9 9.4-13 20.5.9 45.3 22.8 47.1 16.8 1.4 31.5-11 32.9-27.8.3-3.2-.1-6.4-.7-9.5-.2-.9-.6-1.3-1.5-1.3-1.9-.1-3.9-.1-6-.1-2 .1-4.2-.1-6.4.1-4.1.5-7.5 2.5-10.7 4.9l-3.6 2.7c-.5.4-1.1.7-1.8.6-1.5-.2 7.2-8.1 13.8-10.5 2.5-.9 5-1.3 7.7-1.4 1.9 0 3.8-.1 5.6 0 4.7.3 9.1-.9 13.2-3.2"></path>
-        </svg>
-      </div>
+        <div class="page-loader--bg-a"></div>
+        <div class="page-loader--bg-b"></div>
+        <div class="page-loader--and">
+            <svg viewBox="0 0 100 100">
+                <path d="M58.6 26.1c.6-3.4.7-6.8-.4-10.2C56 9.1 49.7 5.4 42.7 6.8 36.2 8 31.3 14.3 31.8 21c.4 4.5 2 8.4 6.2 10.8.2.1.5.2.5.5-.1.3-.4.4-.7.5-2.8 1.2-5.5 2.6-8.1 4.1-4 2.3-7.4 5.5-9.9 9.4-13 20.5.9 45.3 22.8 47.1 16.8 1.4 31.5-11 32.9-27.8.3-3.2-.1-6.4-.7-9.5-.2-.9-.6-1.3-1.5-1.3-1.9-.1-3.9-.1-6-.1-2 .1-4.2-.1-6.4.1-4.1.5-7.5 2.5-10.7 4.9l-3.6 2.7c-.5.4-1.1.7-1.8.6-1.5-.2 7.2-8.1 13.8-10.5 2.5-.9 5-1.3 7.7-1.4 1.9 0 3.8-.1 5.6 0 4.7.3 9.1-.9 13.2-3.2"></path>
+            </svg>
+        </div>
     </div>
-  
-  
-    <!-- Spodná navigácia pre mobilné zariadenia -->
-  <nav class="bottom-nav">
-      <div class="link-background"></div>
-      <ul>
-        <li>
-          <a class="active" href="#home">
-            <svg>
-              <use xlink:href="#home-icon"></use>
-            </svg>
-            <span class="link-text">Kontakt</span>
-          </a>
-        </li>
-        <li>
-          <a href="#inbox">
-            <svg>
-              <use xlink:href="#inbox-icon"></use>
-            </svg>
-            <span class="link-text">Kurz</span>
-          </a>
-        </li>
-        <li>
-          <a href="#profile">
-            <svg>
-              <use xlink:href="#profile-icon"></use>
-            </svg>
-            <span class="link-text">Instagram</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    
+
+    <!-- Icon Navigation Definitions -->
     <div class="icon-nav">
-    <!-- SVG Definície (Prispôsobte ikony podľa potreby) -->
-    <svg style="display:none;">
-      <symbol id="home-icon" viewBox="0 0 50 50">
-        <!-- Nahraďte aktualizovanými dátami cesty -->
-        <path d="M31,44.738v-8.52c0-1.505-0.69-2.929-1.877-3.87l-0.001,0C26.317,30.003,23.722,30.003,21.896,33.218l0,0C21.209,34.712,21,36.218,21,36.218v3.565" fill="none" stroke="currentColor" stroke-width="2"/>
-        <line x1="15" y1="20.223" x2="29" y2="20.223" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M8,19.232L24.681,5.466c0.758-0.632,1.869-0.62,2.612,0.03l15.03,13.144C42.754,19.016,43,19.557,43,20.126v22.892C43,44.113,42.105,45,41,45h-8.6" fill="none" stroke="currentColor" stroke-width="2"/>
-      </symbol>
-      <symbol id="inbox-icon" viewBox="0 0 50 50">
-        <!-- Nahraďte aktualizovanými dátami cesty -->
-        <path d="M45.5,39.5h-40c-1.657,0-3-1.343-3-3V23.55c0-0.028,0.022-0.05,0.05-0.05h13.555l0.665,1.989
-          c0.952,3.563,4.29,6.106,8.139,6.115c0.061,0,0.122,0,0.183,0c3.849-0.009,7.187-2.552,8.139-6.115l0.665-1.989H47.45
-          c0.028,0,0.05,0.022,0.05,0.05V37.5" fill="none" stroke="currentColor" stroke-width="2"/>
-        <path d="M47.5,23.5l-7.109-11.664c-0.556-0.835-1.493-1.336-2.496-1.336H12.106c-1.003,0-1.94,0.501-2.496,1.336L2.5,23.5" fill="none" stroke="currentColor" stroke-width="2"/>
-      </symbol>
-      <symbol id="profile-icon" viewBox="0 0 50 50">
-        <!-- Nahraďte aktualizovanými dátami cesty -->
-        <line x1="18.5" y1="37" x2="28.5" y2="37" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <line x1="14.5" y1="42" x2="21.5" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M35.857,27.299C32.753,25.216,29.019,24,25,24C14.735,24,6.323,31.931,5.557,42" fill="none" stroke="currentColor" stroke-width="2"/>
-        <circle cx="25.5" cy="17" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
-      </symbol>
-    </svg>
-  </div>
-    
-  
-    <!-- Hlavička a navigácia so skleneným efektom -->
-  <header class="header">
-      <div class="container">
-        <nav class="nav-row">
-          <a href="#" aria-label="home" class="nav-logo-row">
-            <div class="nav-logo__wordmark"><span class="gradient-text">Beauty</span>M</div>
-          </a>
-        </nav>
-      </div>
+        <!-- SVG Definitions -->
+        <svg style="display:none;">
+            <symbol id="home-icon" viewBox="0 0 50 50">
+                <path d="M31,44.738v-8.52c0-1.505-0.69-2.929-1.877-3.87l-0.001,0C26.317,30.003,23.722,30.003,21.896,33.218l0,0C21.209,34.712,21,36.218,21,36.218v3.565" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="15" y1="20.223" x2="29" y2="20.223" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8,19.232L24.681,5.466c0.758-0.632,1.869-0.62,2.612,0.03l15.03,13.144C42.754,19.016,43,19.557,43,20.126v22.892C43,44.113,42.105,45,41,45h-8.6" fill="none" stroke="currentColor" stroke-width="2"/>
+            </symbol>
+            <symbol id="inbox-icon" viewBox="0 0 50 50">
+                <path d="M45.5,39.5h-40c-1.657,0-3-1.343-3-3V23.55c0-0.028,0.022-0.05,0.05-0.05h13.555l0.665,1.989
+                c0.952,3.563,4.29,6.106,8.139,6.115c0.061,0,0.122,0,0.183,0c3.849-0.009,7.187-2.552,8.139-6.115l0.665-1.989H47.45
+                c0.028,0,0.05,0.022,0.05,0.05V37.5" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M47.5,23.5l-7.109-11.664c-0.556-0.835-1.493-1.336-2.496-1.336H12.106c-1.003,0-1.94,0.501-2.496,1.336L2.5,23.5" fill="none" stroke="currentColor" stroke-width="2"/>
+            </symbol>
+            <symbol id="profile-icon" viewBox="0 0 50 50">
+                <line x1="18.5" y1="37" x2="28.5" y2="37" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="14.5" y1="42" x2="21.5" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M35.857,27.299C32.753,25.216,29.019,24,25,24C14.735,24,6.323,31.931,5.557,42" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="25.5" cy="17" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+            </symbol>
+        </svg>
+    </div>
+
+    <!-- Header with updated clock display -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-row">
+                <!-- Logo on the left -->
+                <a href="#" aria-label="home" class="nav-logo-row">
+                    <div class="nav-logo__wordmark"><span class="gradient-text">Luxe</span>Nails</div>
+                </a>
+                
+                <!-- Time Display with Slovak calendar -->
+                <div class="current-time">
+                    <div class="time-display" id="timeDisplay">12:00</div>
+                    <div class="date-display" id="dateDisplay">Str, Feb 26</div>
+                </div>
+                
+                <!-- Hamburger menu button in header -->
+                <buttonone role="button1" data-menu-toggle="" class="menu-button-header" aria-expanded="false">
+                    <div class="icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </div>
+                </buttonone>
+            </nav>
+        </div>
     </header>
     
-    <!-- Tlačidlo hamburger menu -->
-    <button role="button" data-menu-toggle="" class="menu-button" aria-expanded="false">
-      <div class="icon-wrap">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </div>
-    </button>
-    
-    <!-- Prekrytie navigačného menu s vylepšeným bočným menu -->
+    <!-- Side Navigation Menu (simplified close button) -->
     <div class="nav" data-nav="closed">
       <div class="overlay" data-menu-toggle=""></div>
-      <nav class="menu">
+    <nav class="menu">
         <div class="menu-header">
-          <h3>Luxe<span class="gradient-text">Nails</span></h3>
-          <p>Prémiové nechtové umenie</p>
-          <button role="button" data-menu-toggle="" class="menu-close" aria-expanded="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
+            <h3>Luxe<span class="gradient-text">Nails</span></h3>
+            <p>Prémiové nechtové umenie</p>
+            <!-- Simplified close button - only X icon -->
+            <buttonone role="button" data-menu-toggle="" class="menu-close" aria-expanded="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </buttonone>
         </div>
         
         <ul class="menu-list">
-          <li class="menu-list-item" style="--item-index: 0;">
-            <a href="#hero" class="menu-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              Domov
-            </a>
-          </li>
-          <li class="menu-list-item" style="--item-index: 1;">
-            <a href="#services" class="menu-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8c.4 0 .8-.2 1.1-.5.3-.3.5-.7.5-1.1V6.5L15.5 2z"></path>
-                <path d="M3 7.6v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8"></path>
-                <path d="M15 2v5h5"></path>
-              </svg>
-              Služby
-            </a>
-          </li>
-          <li class="menu-list-item" style="--item-index: 2;">
-            <a href="#gallery" class="menu-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-              Galéria
-            </a>
-          </li>
-          <li class="menu-list-item" style="--item-index: 3;">
-            <a href="#testimonials" class="menu-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-              Referencie
-            </a>
-          </li>
-          <li class="menu-list-item" style="--item-index: 4;">
-            <a href="#booking" class="menu-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              Rezervácia
-            </a>
-          </li>
-          <li class="menu-list-item" style="--item-index: 5;">
-            <a href="#contact" class="menu-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              Kontakt
-            </a>
-          </li>
+            <li class="menu-list-item" style="--item-index: 0;">
+                <a href="#hero" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Domov
+                </a>
+            </li>
+            <li class="menu-list-item" style="--item-index: 1;">
+                <a href="#services" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8c.4 0 .8-.2 1.1-.5.3-.3.5-.7.5-1.1V6.5L15.5 2z"></path>
+                        <path d="M3 7.6v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8"></path>
+                        <path d="M15 2v5h5"></path>
+                    </svg>
+                    Služby
+                </a>
+            </li>
+            <li class="menu-list-item" style="--item-index: 2;">
+                <a href="#gallery" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    Galéria
+                </a>
+            </li>
+            <li class="menu-list-item" style="--item-index: 3;">
+                <a href="#testimonials" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Referencie
+                </a>
+            </li>
+            <li class="menu-list-item" style="--item-index: 4;">
+                <a href="#booking" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Rezervácia
+                </a>
+            </li>
+            <li class="menu-list-item" style="--item-index: 5;">
+                <a href="#contact" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Kontakt
+                </a>
+            </li>
         </ul>
         
         <div class="menu-footer">
-          <div class="menu-social">
-            <a href="#" class="menu-social-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="#" class="menu-social-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="menu-social-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-              </svg>
-            </a>
-          </div>
-          <div class="menu-copyright">
-            &copy; 2025 LuxeNails. Všetky práva vyhradené.
-          </div>
-        </div>
-      </nav>
-    </div>
-  
-    <!-- Hlavný obsah -->
-    <main>
-      <!-- Úvodná sekcia -->
-      <section id="hero">
-          <section id="hero">
-              <div class="hero-content">
-                <h1 class="hero-title">Pozdvihnite svoj štýl s prémiovým nechtovým umením</h1>
-                <p class="hero-description">
-                  Zažite novú dimenziu luxusu s našimi špičkovými technikami a personalizovanými procedúrami starostlivosti o nechty.
-                </p>
-                <a href="#booking">
-                  <button>Rezervovať termín</button>
+            <div class="menu-social">
+                <a href="#" class="menu-social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
                 </a>
-              </div>
-              <!-- Kruhové menu v spodnej časti úvodnej sekcie -->
-              <div class="hero-footer-menu">
-                <ul class="ln-menu">
-                  <li class="ln-menu__item" style="--i:#833AB4; --j:#FD1D1D;">
+                <a href="#" class="menu-social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="menu-social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="menu-copyright">
+                &copy; 2025 LuxeNails. Všetky práva vyhradené.
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Main Content -->
+<main>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Pozdvihnite svoj štýl s prémiovým nechtovým umením</h1>
+            <p class="hero-description">
+                Zažite novú dimenziu luxusu s našimi špičkovými technikami a personalizovanými procedúrami starostlivosti o nechty.
+            </p>
+            <a href="#booking" class="hero-button">
+                <button>Rezervovať termín</button>
+            </a>
+        </div>
+        
+        <!-- Circular Menu in Footer -->
+        <div class="hero-footer-menu">
+            <ul class="ln-menu">
+                <li class="ln-menu__item" style="--i:#833AB4; --j:#FD1D1D;">
                     <span class="ln-menu__icon"><ion-icon name="logo-instagram"></ion-icon></span>
                     <span class="ln-menu__label">Instagram</span>
-                  </li>
-                  <li class="ln-menu__item" style="--i:#3b5998; --j:#8b9dc3;">
+                </li>
+                <li class="ln-menu__item" style="--i:#3b5998; --j:#8b9dc3;">
                     <span class="ln-menu__icon"><ion-icon name="logo-facebook"></ion-icon></span>
                     <span class="ln-menu__label">Facebook</span>
-                  </li>
-                  <li class="ln-menu__item" style="--i:#4285F4; --j:#34A853;">
+                </li>
+                <li class="ln-menu__item" style="--i:#4285F4; --j:#34A853;">
                     <span class="ln-menu__icon"><ion-icon name="location-outline"></ion-icon></span>
                     <span class="ln-menu__label">Mapa</span>
-                  </li>
-                  <li class="ln-menu__item" style="--i:#D4AF37; --j:#e5c76b;">
+                </li>
+                <li class="ln-menu__item" style="--i:#D4AF37; --j:#e5c76b;">
                     <span class="ln-menu__icon"><ion-icon name="share-social-outline"></ion-icon></span>
                     <span class="ln-menu__label">Zdieľať</span>
-                  </li>
-                  <li class="ln-menu__item" style="--i:#FF4D4D; --j:#FFAAAA;">
+                </li>
+                <li class="ln-menu__item" style="--i:#FF4D4D; --j:#FFAAAA;">
                     <span class="ln-menu__icon"><ion-icon name="mail-outline"></ion-icon></span>
                     <span class="ln-menu__label">Kontakt</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
-            
-            <!-- Ionicons -->
-            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-            
-      </section>
-  
-      <!-- Sekcia služieb -->
-      <section id="services">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Naše <span class="gradient-text">Služby</span></h2>
-            <p class="section-subtitle">
-              Objavte našu škálu prémiových nechtových procedúr navrhnutých na pozdvihnutie vášho štýlu a zážitku zo starostlivosti o seba.
-            </p>
-          </div>
-          <div class="services-grid">
-            <div class="service-card glass-card">
-              <div class="service-icon">✧</div>
-              <h3 class="service-title">Luxusná manikúra</h3>
-              <p class="service-description">
-                Omladzujúca procedúra, ktorá zahŕňa exfoliáciu, masáž a aplikáciu prémiového laku s najmodernejšími technikami.
-              </p>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Naše <span class="gradient-text">Služby</span></h2>
+                <p class="section-subtitle">
+                    Objavte našu škálu prémiových nechtových procedúr navrhnutých na pozdvihnutie vášho štýlu a zážitku zo starostlivosti o seba.
+                </p>
             </div>
-            <div class="service-card glass-card">
-              <div class="service-icon">✧</div>
-              <h3 class="service-title">Prémiová pedikúra</h3>
-              <p class="service-description">
-                Revitalizujte svoje nohy s našou prémiovou pedikúrou, ktorá zahŕňa špičkové produkty a relaxačnú masáž nôh.
-              </p>
+            <div class="services-grid">
+                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">✧</div>
+                    <h3 class="service-title">Luxusná manikúra</h3>
+                    <p class="service-description">
+                        Omladzujúca procedúra, ktorá zahŕňa exfoliáciu, masáž a aplikáciu prémiového laku s najmodernejšími technikami.
+                    </p>
+                </div>
+                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">✧</div>
+                    <h3 class="service-title">Prémiová pedikúra</h3>
+                    <p class="service-description">
+                        Revitalizujte svoje nohy s našou prémiovou pedikúrou, ktorá zahŕňa špičkové produkty a relaxačnú masáž nôh.
+                    </p>
+                </div>
+                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">✧</div>
+                    <h3 class="service-title">Gélové nadstavce</h3>
+                    <p class="service-description">
+                        Vylepšite svoje prirodzené nechty s našimi odolnými a ľahkými gélovými nadstavcami pre bezchybný vzhľad.
+                    </p>
+                </div>
             </div>
-            <div class="service-card glass-card">
-              <div class="service-icon">✧</div>
-              <h3 class="service-title">Gélové nadstavce</h3>
-              <p class="service-description">
-                Vylepšite svoje prirodzené nechty s našimi odolnými a ľahkými gélovými nadstavcami pre bezchybný vzhľad.
-              </p>
-            </div>
-          </div>
         </div>
-      </section>
-  
-      <!-- Sekcia galérie -->
-      <section id="gallery">
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Naša <span class="gradient-text">Galéria</span></h2>
-            <p class="section-subtitle">
-              Prezrite si naše portfólio exkluzívnych nechtových dizajnov a umeleckých diel.
-            </p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item glass-card">
-              <img src="https://via.placeholder.com/400x500?text=Nail+Design+1" alt="Dizajn nechtov" class="gallery-image" />
-              <div class="gallery-overlay">
-                <h3 class="gallery-title">Moderná francúzska</h3>
-              </div>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Naša <span class="gradient-text">Galéria</span></h2>
+                <p class="section-subtitle">
+                    Prezrite si naše portfólio exkluzívnych nechtových dizajnov a umeleckých diel.
+                </p>
             </div>
-            <div class="gallery-item glass-card">
-              <img src="https://via.placeholder.com/400x500?text=Nail+Design+2" alt="Dizajn nechtov" class="gallery-image" />
-              <div class="gallery-overlay">
-                <h3 class="gallery-title">Chrómová úprava</h3>
-              </div>
+            <div class="gallery-grid">
+                <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/400x500?text=Nail+Design+1" alt="Dizajn nechtov" class="gallery-image" />
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Moderná francúzska</h3>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/400x500?text=Nail+Design+2" alt="Dizajn nechtov" class="gallery-image" />
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Chrómová úprava</h3>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/400x500?text=Nail+Design+3" alt="Dizajn nechtov" class="gallery-image" />
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Abstraktné umenie</h3>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://via.placeholder.com/400x500?text=Nail+Design+4" alt="Dizajn nechtov" class="gallery-image" />
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Minimalistické drahokamy</h3>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item glass-card">
-              <img src="https://via.placeholder.com/400x500?text=Nail+Design+3" alt="Dizajn nechtov" class="gallery-image" />
-              <div class="gallery-overlay">
-                <h3 class="gallery-title">Abstraktné umenie</h3>
-              </div>
-            </div>
-            <div class="gallery-item glass-card">
-              <img src="https://via.placeholder.com/400x500?text=Nail+Design+4" alt="Dizajn nechtov" class="gallery-image" />
-              <div class="gallery-overlay">
-                <h3 class="gallery-title">Minimalistické drahokamy</h3>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-  
-      <!-- Aktualizovaná sekcia referencií s minimalistickými šípkami -->
-  <section id="testimonials">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Referencie <span class="gradient-text">Klientov</span></h2>
-          <p class="section-subtitle">
-            Pozrite si, čo hovoria naši klienti o svojich skúsenostiach v LuxeNails.
-          </p>
-        </div>
-        
-        <div class="testimonials-slider">
-          <!-- Minimalistická šípka vľavo -->
-          <div class="slider-arrow slider-prev">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </div>
-          
-          <div class="slider-content">
-            <div class="slider-track">
-              <!-- Referencia 1 -->
-              <div class="testimonial-slide">
-                <div class="testimonial-wrapper glass-card">
-                  <div class="quote-icon">❝</div>
-                  <p class="testimonial-text">
-                    Pozornosť k detailom v LuxeNails je neprekonateľná. Moje nechty nikdy nevyzerali lepšie a dizajn inšpirovaný sklom, ktorý mi vytvorili, získal nespočetné komplimenty. Atmosféra salónu robí z každej návštevy luxusný zážitok.
-                  </p>
-                  <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/100x100?text=Client" alt="Klient" class="author-image" />
-                    <div class="author-details">
-                      <div class="author-name">Sofia Richardsová</div>
-                      <div class="author-title">Pravidelná klientka</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Referencia 2 -->
-              <div class="testimonial-slide">
-                <div class="testimonial-wrapper glass-card">
-                  <div class="quote-icon">❝</div>
-                  <p class="testimonial-text">
-                    Som nesmierne ohromená kvalitou a trvanlivosťou mojich gélových nechtov z LuxeNails. Technici sú skutoční umelci, ktorí si dávajú záležať na dokonalosti. Ich pozornosť venovaná hygiene a bezpečnosti je tiež obdivuhodná, vďaka čomu sa cítim počas každej návštevy pokojne.
-                  </p>
-                  <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/100x100?text=Client2" alt="Klient" class="author-image" />
-                    <div class="author-details">
-                      <div class="author-name">Emma Johnsová</div>
-                      <div class="author-title">Mesačná návštevníčka</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Referencia 3 -->
-              <div class="testimonial-slide">
-                <div class="testimonial-wrapper glass-card">
-                  <div class="quote-icon">❝</div>
-                  <p class="testimonial-text">
-                    LuxeNails úplne zmenili moju rutinu starostlivosti o nechty. Bojovala som so slabými, lámavými nechtami, kým som nezačala ich posilňujúce ošetrenia. Personál je neuveriteľne znalý a poskytol mi personalizované odporúčania, ktoré spôsobili obrovský rozdiel.
-                  </p>
-                  <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/100x100?text=Client3" alt="Klient" class="author-image" />
-                    <div class="author-details">
-                      <div class="author-name">Olivia Martinezová</div>
-                      <div class="author-title">Prvýkrát klientka</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Referencia 4 -->
-              <div class="testimonial-slide">
-                <div class="testimonial-wrapper glass-card">
-                  <div class="quote-icon">❝</div>
-                  <p class="testimonial-text">
-                    Ako niekto, kto pracuje v módnom priemysle, potrebujem mať svoje nechty konzistentne bezchybné. LuxeNails chápe tento tlak a vždy dodáva mimoriadne výsledky. Ich nechtové umenie je skutočne špičkové a dôverujem im pre všetky moje fotenia a podujatia.
-                  </p>
-                  <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/100x100?text=Client4" alt="Klient" class="author-image" />
-                    <div class="author-details">
-                      <div class="author-name">Isabella Chenová</div>
-                      <div class="author-title">Módna stylistka</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Referencia 5 -->
-              <div class="testimonial-slide">
-                <div class="testimonial-wrapper glass-card">
-                  <div class="quote-icon">❝</div>
-                  <p class="testimonial-text">
-                    Oceňujem, ako LuxeNails sleduje najnovšie trendy a pritom si zachováva svoj záväzok ku kvalite. Ich sezónne kolekcie sú vždy inšpiratívne a personál poskytuje užitočné návrhy bez nátlaku. Je to viac než len nechtové štúdio – je to luxusný zážitok, ktorý stojí za každé euro.
-                  </p>
-                  <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/100x100?text=Client5" alt="Klient" class="author-image" />
-                    <div class="author-details">
-                      <div class="author-name">Zoe Williamsová</div>
-                      <div class="author-title">Verná zákazníčka</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    </section>
+
+    <!-- Testimonials Section with improved arrows -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Referencie <span class="gradient-text">Klientov</span></h2>
+                <p class="section-subtitle">
+                    Pozrite si, čo hovoria naši klienti o svojich skúsenostiach v LuxeNails.
+                </p>
             </div>
+            
+            <div class="testimonials-slider">
+                <!-- Fixed Left Arrow -->
+                <div class="slider-arrow slider-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </div>
+                <div class="slider-content">
+                  <div class="slider-track">
+                      <!-- Testimonial 1 -->
+                      <div class="testimonial-slide">
+                          <div class="testimonial-wrapper glass-card">
+                              <div class="quote-icon">❝</div>
+                              <p class="testimonial-text">
+                                  Pozornosť k detailom v LuxeNails je neprekonateľná. Moje nechty nikdy nevyzerali lepšie a dizajn inšpirovaný sklom, ktorý mi vytvorili, získal nespočetné komplimenty. Atmosféra salónu robí z každej návštevy luxusný zážitok.
+                              </p>
+                              <div class="testimonial-author">
+                                  <img src="https://via.placeholder.com/100x100?text=Client" alt="Klient" class="author-image" />
+                                  <div class="author-details">
+                                      <div class="author-name">Sofia Richardsová</div>
+                                      <div class="author-title">Pravidelná klientka</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Testimonial 2 -->
+                      <div class="testimonial-slide">
+                          <div class="testimonial-wrapper glass-card">
+                              <div class="quote-icon">❝</div>
+                              <p class="testimonial-text">
+                                  Som nesmierne ohromená kvalitou a trvanlivosťou mojich gélových nechtov z LuxeNails. Technici sú skutoční umelci, ktorí si dávajú záležať na dokonalosti. Ich pozornosť venovaná hygiene a bezpečnosti je tiež obdivuhodná, vďaka čomu sa cítim počas každej návštevy pokojne.
+                              </p>
+                              <div class="testimonial-author">
+                                  <img src="https://via.placeholder.com/100x100?text=Client2" alt="Klient" class="author-image" />
+                                  <div class="author-details">
+                                      <div class="author-name">Emma Johnsová</div>
+                                      <div class="author-title">Mesačná návštevníčka</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Testimonial 3 -->
+                      <div class="testimonial-slide">
+                          <div class="testimonial-wrapper glass-card">
+                              <div class="quote-icon">❝</div>
+                              <p class="testimonial-text">
+                                  LuxeNails úplne zmenili moju rutinu starostlivosti o nechty. Bojovala som so slabými, lámavými nechtami, kým som nezačala ich posilňujúce ošetrenia. Personál je neuveriteľne znalý a poskytol mi personalizované odporúčania, ktoré spôsobili obrovský rozdiel.
+                              </p>
+                              <div class="testimonial-author">
+                                  <img src="https://via.placeholder.com/100x100?text=Client3" alt="Klient" class="author-image" />
+                                  <div class="author-details">
+                                      <div class="author-name">Olivia Martinezová</div>
+                                      <div class="author-title">Prvýkrát klientka</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Testimonial 4 -->
+                      <div class="testimonial-slide">
+                          <div class="testimonial-wrapper glass-card">
+                              <div class="quote-icon">❝</div>
+                              <p class="testimonial-text">
+                                  Ako niekto, kto pracuje v módnom priemysle, potrebujem mať svoje nechty konzistentne bezchybné. LuxeNails chápe tento tlak a vždy dodáva mimoriadne výsledky. Ich nechtové umenie je skutočne špičkové a dôverujem im pre všetky moje fotenia a podujatia.
+                              </p>
+                              <div class="testimonial-author">
+                                  <img src="https://via.placeholder.com/100x100?text=Client4" alt="Klient" class="author-image" />
+                                  <div class="author-details">
+                                      <div class="author-name">Isabella Chenová</div>
+                                      <div class="author-title">Módna stylistka</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Testimonial 5 -->
+                      <div class="testimonial-slide">
+                          <div class="testimonial-wrapper glass-card">
+                              <div class="quote-icon">❝</div>
+                              <p class="testimonial-text">
+                                  Oceňujem, ako LuxeNails sleduje najnovšie trendy a pritom si zachováva svoj záväzok ku kvalite. Ich sezónne kolekcie sú vždy inšpiratívne a personál poskytuje užitočné návrhy bez nátlaku. Je to viac než len nechtové štúdio – je to luxusný zážitok, ktorý stojí za každé euro.
+                              </p>
+                              <div class="testimonial-author">
+                                  <img src="https://via.placeholder.com/100x100?text=Client5" alt="Klient" class="author-image" />
+                                  <div class="author-details">
+                                      <div class="author-name">Zoe Williamsová</div>
+                                      <div class="author-title">Verná zákazníčka</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Fixed Right Arrow -->
+              <div class="slider-arrow slider-next">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+              </div>
           </div>
           
-          <!-- Minimalistická šípka vpravo -->
-          <div class="slider-arrow slider-next">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </div>
-          </div>
-          
-          <!-- Bodky pre navigáciu -->
+          <!-- Pagination Dots -->
           <div class="slider-pagination">
-            <span class="pagination-dot active" data-index="0"></span>
-            <span class="pagination-dot" data-index="1"></span>
-            <span class="pagination-dot" data-index="2"></span>
-            <span class="pagination-dot" data-index="3"></span>
-            <span class="pagination-dot" data-index="4"></span>
+              <span class="pagination-dot active" data-index="0"></span>
+              <span class="pagination-dot" data-index="1"></span>
+              <span class="pagination-dot" data-index="2"></span>
+              <span class="pagination-dot" data-index="3"></span>
+              <span class="pagination-dot" data-index="4"></span>
           </div>
-        </div>
-      </section>
-    
-        <!-- Sekcia rezervácií -->
-        <section id="booking">
-          <div class="container">
-            <div class="booking-container">
-              <div class="booking-content">
-                <h2>Pripravení na <span class="gradient-text">Premenu?</span></h2>
-                <p>
-                  Rezervujte si termín teraz a zažite naše prémiové služby starostlivosti o nechty. Naši odborní technici sú pripravení premeniť vašu víziu na skutočnosť s najmodernejšími technikami a prémiovými produktmi.
-                </p>
-                <p>
-                  Odporúčame rezerváciu aspoň 24 hodín vopred, aby ste si zabezpečili preferovaný časový slot.
-                </p>
+      </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking">
+      <div class="container">
+          <div class="booking-container">
+              <div class="booking-content" data-aos="fade-right">
+                  <h2>Pripravení na <span class="gradient-text">Premenu?</span></h2>
+                  <p>
+                      Rezervujte si termín teraz a zažite naše prémiové služby starostlivosti o nechty. Naši odborní technici sú pripravení premeniť vašu víziu na skutočnosť s najmodernejšími technikami a prémiovými produktmi.
+                  </p>
+                  <p>
+                      Odporúčame rezerváciu aspoň 24 hodín vopred, aby ste si zabezpečili preferovaný časový slot.
+                  </p>
               </div>
-              <form class="booking-form glass-card">
-                <div class="form-group">
-                  <input type="text" class="form-input" placeholder="Vaše meno" required />
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-input" placeholder="Váš e-mail" required />
-                </div>
-                <div class="form-group">
-                  <input type="tel" class="form-input" placeholder="Váš telefón" required />
-                </div>
-                <div class="form-group">
-                  <select class="form-input" required>
-                    <option value="" disabled selected>Vyberte službu</option>
-                    <option value="luxury-manicure">Luxusná manikúra</option>
-                    <option value="signature-pedicure">Prémiová pedikúra</option>
-                    <option value="gel-extensions">Gélové nadstavce</option>
-                    <option value="3d-nail-art">3D nechtové umenie</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <input type="date" class="form-input" required />
-                </div>
-                <div class="form-group">
-                  <input type="time" class="form-input" required />
-                </div>
-                <button type="submit"><span>Potvrdiť rezerváciu</span></button>
+              <form class="booking-form glass-card" data-aos="fade-left">
+                  <div class="form-group">
+                      <input type="text" class="form-input" placeholder="Vaše meno" required />
+                  </div>
+                  <div class="form-group">
+                      <input type="email" class="form-input" placeholder="Váš e-mail" required />
+                  </div>
+                  <div class="form-group">
+                      <input type="tel" class="form-input" placeholder="Váš telefón" required />
+                  </div>
+                  <div class="form-group">
+                      <select class="form-input" required>
+                          <option value="" disabled selected>Vyberte službu</option>
+                          <option value="luxury-manicure">Luxusná manikúra</option>
+                          <option value="signature-pedicure">Prémiová pedikúra</option>
+                          <option value="gel-extensions">Gélové nadstavce</option>
+                          <option value="3d-nail-art">3D nechtové umenie</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <input type="date" class="form-input" required />
+                  </div>
+                  <div class="form-group">
+                      <input type="time" class="form-input" required />
+                  </div>
+                  <button type="submit"><span>Potvrdiť rezerváciu</span></button>
               </form>
-            </div>
           </div>
-        </section>
-    
-        <!-- Kontaktná sekcia -->
-        <section id="contact">
-          <div class="container">
-            <div class="section-header">
+      </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+      <div class="container">
+          <div class="section-header" data-aos="fade-up">
               <h2 class="section-title">Kontaktujte <span class="gradient-text">Nás</span></h2>
               <p class="section-subtitle">
-                Radi sa s vami spojíme. Kontaktujte nás pre otázky alebo špeciálne požiadavky.
+                  Radi sa s vami spojíme. Kontaktujte nás pre otázky alebo špeciálne požiadavky.
               </p>
-            </div>
-            <div class="contact-info">
-              <div class="contact-item glass-card">
-                <div class="contact-icon">✦</div>
-                <h3 class="contact-title">Adresa</h3>
-                <p class="contact-detail">Módna Ulica 123, Luxusná Štvrť, Bratislava 85101</p>
-              </div>
-              <div class="contact-item glass-card">
-                <div class="contact-icon">✦</div>
-                <h3 class="contact-title">E-mail</h3>
-                <p class="contact-detail">rezervacie@luxenails.sk</p>
-              </div>
-              <div class="contact-item glass-card">
-                <div class="contact-icon">✦</div>
-                <h3 class="contact-title">Telefón</h3>
-                <p class="contact-detail">+421 901 234 567</p>
-              </div>
-              <div class="contact-item glass-card">
-                <div class="contact-icon">✦</div>
-                <h3 class="contact-title">Otváracie hodiny</h3>
-                <p class="contact-detail">Pon-Sob: 10:00 - 20:00<br>Ned: 12:00 - 18:00</p>
-              </div>
-            </div>
           </div>
-        </section>
-      </main>
-      <div class="icon-nav">
-      <!-- Päta stránky -->
-      <!-- Sekcia päty stránky -->
-    <footer class="footer-section">
-        
-      
-        <div class="footer-main">
-          <div class="container">
-            <div class="footer-content">
-              <!-- Stĺpec značky -->
+          <div class="contact-info">
+              <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="100">
+                  <div class="contact-icon">✦</div>
+                  <h3 class="contact-title">Adresa</h3>
+                  <p class="contact-detail">Módna Ulica 123, Luxusná Štvrť, Bratislava 85101</p>
+              </div>
+              <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="200">
+                  <div class="contact-icon">✦</div>
+                  <h3 class="contact-title">E-mail</h3>
+                  <p class="contact-detail">rezervacie@luxenails.sk</p>
+              </div>
+              <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="300">
+                  <div class="contact-icon">✦</div>
+                  <h3 class="contact-title">Telefón</h3>
+                  <p class="contact-detail">+421 901 234 567</p>
+              </div>
+              <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="400">
+                  <div class="contact-icon">✦</div>
+                  <h3 class="contact-title">Otváracie hodiny</h3>
+                  <p class="contact-detail">Pon-Sob: 10:00 - 20:00<br>Ned: 12:00 - 18:00</p>
+              </div>
+          </div>
+      </div>
+  </section>
+</main>
+
+<!-- Footer Section -->
+<footer class="footer-section">
+  <div class="footer-main">
+      <div class="container">
+          <div class="footer-content">
+              <!-- Brand Column -->
               <div class="footer-column brand-column">
-                <h3 class="footer-logo">LUXENAILS</h3>
-                <p class="footer-description">
-                  Prémiový nechtový salón ponúkajúci luxusné služby s odbornosťou a eleganciou. 
-                  Naši zruční umelci vytvárajú úžasné dizajny pre každú príležitosť.
-                </p>
-                <a href="#" class="read-more">čítať viac →</a>
+                  <h3 class="footer-logo">LUXENAILS</h3>
+                  <p class="footer-description">
+                      Prémiový nechtový salón ponúkajúci luxusné služby s odbornosťou a eleganciou. 
+                      Naši zruční umelci vytvárajú úžasné dizajny pre každú príležitosť.
+                  </p>
+                  
               </div>
       
-              <!-- Stĺpec Objavte -->
+              <!-- Discover Column -->
               <div class="footer-column">
-                <h4 class="footer-heading">Objavte</h4>
-                <ul class="footer-links">
-                  <li><a href="#">Služby a cenník</a></li>
-                  <li><a href="#">Darčekové poukazy</a></li>
-                  <li><a href="#">Špeciálne ponuky</a></li>
-                  <li><a href="#">Pomoc a podpora</a></li>
-                </ul>
-              </div>
-      
-              <!-- Stĺpec O nás -->
-              <div class="footer-column">
-                <h4 class="footer-heading">O nás</h4>
-                <ul class="footer-links">
-                  <li><a href="#">Náš príbeh</a></li>
-                  <li><a href="#">Tím</a></li>
-                  <li><a href="#">Kariéra</a></li>
-                  <li><a href="#">Blog</a></li>
-                </ul>
-              </div>
-      
-              <!-- Stĺpec Zdroje -->
-              <div class="footer-column">
-                <h4 class="footer-heading">Zdroje</h4>
-                <ul class="footer-links">
-                  <li><a href="#">Príručka starostlivosti o nechty</a></li>
-                  <li><a href="#">Inšpiratívna galéria</a></li>
-                  <li><a href="#">Tutoriály</a></li>
-                  <li><a href="#">Ochrana súkromia</a></li>
-                </ul>
-              </div>
-      
-              <!-- Stĺpec Sociálne siete -->
-              <div class="footer-column">
-                <h4 class="footer-heading">Sociálne siete</h4>
-                <ul class="footer-links">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Twitter</a></li>
-                  <li><a href="#">Instagram</a></li>
-                  <li><a href="#">Pinterest</a></li>
-                </ul>
-              </div>
+                  <h4 class="footer-heading">Objavte</h4>
+                  <ul class="footer-links">
+                      <li><a href="#">Služby a cenník</a></li>
+                      <li><a href="#">Darčekové poukazy</a></li>
+                      <li><a href="#">Špeciálne ponuky</a></li>
+                      <li><a href="#">Pomoc a podpora</a></li>
+                    </ul>
+                </div>
+        
+                
+        
+               
+        
+                <!-- Social Networks Column -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Sociálne siete</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                    </ul>
+                </div>
             </div>
-      
-            <!-- Sekcia partnerov -->
-            <div class="footer-partners">
-              <p class="partner-title">Naši partneri:</p>
-              <div class="partner-logos">
-                <a href="#" class="partner-logo">SPOLOČNOSŤ 01</a>
-                <a href="#" class="partner-logo">SPOLOČNOSŤ 02</a>
-                <a href="#" class="partner-logo">SPOLOČNOSŤ 03</a>
-                <a href="#" class="partner-logo">SPOLOČNOSŤ 04</a>
-                <a href="#" class="partner-logo">SPOLOČNOSŤ 05</a>
-                <a href="#" class="partner-logo">SPOLOČNOSŤ 06</a>
-              </div>
-              <a href="#" class="see-all">Zobraziť všetky →</a>
-            </div>
-      
-            <!-- Sekcia autorských práv -->
+        
+            
+        
+            <!-- Copyright Section -->
             <div class="footer-copyright">
-              <p class="copyright-text">Autorské práva ©2025 Všetky práva vyhradené | Made By <strong><a href="https://www.pnhmedia.sk">PNH Media</a> </strong></p>
-              <div class="footer-legal">
-                <a href="#">Podmienky</a>
-                <a href="#">Súkromie</a>
-                <a href="#">Súlad s predpismi</a>
-              </div>
+                <p class="copyright-text">Autorské práva ©2025 Všetky práva vyhradené | Made By <strong><a href="https://www.pnhmedia.sk">PNH Media</a> </strong></p>
+                <div class="footer-legal">
+                    <a href="#">Podmienky</a>
+                    <a href="#">Súkromie</a>
+                    <a href="#">Súlad s predpismi</a>
+                </div>
             </div>
-          </div>
         </div>
-      </footer>
     </div>
-    
-    
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
 </footer>
 
+<!-- Load Ionicons -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-</div>
-  </footer>
+<!-- jQuery (required for loader animations) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- GSAP for animations -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<!-- GSAP Custom Ease plugin -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<!-- AOS Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-  <!-- Scripts -->
-  <!-- GSAP for animations -->
-  <!-- jQuery (required for loader animations) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- GSAP for animations -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <!-- Loader Animation Script -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-  <script>
-    function showLoader() {
-      $('.page-loader').removeClass('is-invisible');
-      var tl = gsap.timeline();
-      tl.fromTo('.page-loader--bg-a', { x: '100%' }, { x: '0%', duration: 0.7, ease: "power3.out" }, 0)
-        .fromTo('.page-loader--bg-b', { x: '100%' }, { x: '0%', duration: 0.9, ease: "power2.inOut" }, 0)
-        .fromTo('.page-loader--and', { x: window.outerWidth/1.8 }, { x: 0, duration: 0.9, ease: "power3.inOut" }, 0)
-        .fromTo('.page-loader--and path', { strokeDashoffset: 286 }, { strokeDashoffset: 0, duration: 0.9, ease: "power1.inOut" }, 0);
-    }
-    
-    function hideLoader() {
-      var tl = gsap.timeline();
-      tl.fromTo('.page-loader--bg-a', { x: '0%' }, { x: '-100%', duration: 0.9, ease: "power2.inOut" }, 0)
-        .fromTo('.page-loader--bg-b', { x: '0%' }, { x: '-100%', duration: 0.7, ease: "power3.inOut" }, 0)
-        .fromTo('.page-loader--and', { x: 0 }, { x: -window.outerWidth/1.8, duration: 0.9, ease: "power3.inOut" }, 0)
-        .to('.page-loader--and path', { strokeDashoffset: -286, duration: 0.9, ease: "power1.inOut" }, 0)
-        .call(function(){
-            $('.page-loader').addClass('is-invisible');
-        });
-    }
-    
-    showLoader();
-    setTimeout(function() {
-      hideLoader();
-    }, 2000);
-  </script>
-  
-  <!-- Optional: Other existing scripts (e.g., mobile menu toggle, etc.) -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-  <script>
-    // Example: Change header background on scroll
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('.header');
-      header.style.background = window.scrollY > 50 ? 'rgba(0,0,0,0.8)' : 'transparent';
+<script>
+// Page loader animation
+function showLoader() {
+    $('.page-loader').removeClass('is-invisible');
+    var tl = gsap.timeline();
+    tl.fromTo('.page-loader--bg-a', { x: '100%' }, { x: '0%', duration: 0.7, ease: "power3.out" }, 0)
+    .fromTo('.page-loader--bg-b', { x: '100%' }, { x: '0%', duration: 0.9, ease: "power2.inOut" }, 0)
+    .fromTo('.page-loader--and', { x: window.outerWidth/1.8 }, { x: 0, duration: 0.9, ease: "power3.inOut" }, 0)
+    .fromTo('.page-loader--and path', { strokeDashoffset: 286 }, { strokeDashoffset: 0, duration: 0.9, ease: "power1.inOut" }, 0);
+}
+
+function hideLoader() {
+    var tl = gsap.timeline();
+    tl.fromTo('.page-loader--bg-a', { x: '0%' }, { x: '-100%', duration: 0.9, ease: "power2.inOut" }, 0)
+    .fromTo('.page-loader--bg-b', { x: '0%' }, { x: '-100%', duration: 0.7, ease: "power3.inOut" }, 0)
+    .fromTo('.page-loader--and', { x: 0 }, { x: -window.outerWidth/1.8, duration: 0.9, ease: "power3.inOut" }, 0)
+    .to('.page-loader--and path', { strokeDashoffset: -286, duration: 0.9, ease: "power1.inOut" }, 0)
+    .call(function(){
+        $('.page-loader').addClass('is-invisible');
     });
-    
-    // Initialize mobile menu (Osmo UI Navigation)
-    function initMenu(){
-      let navWrap = document.querySelector('.nav');
-      let overlay = navWrap.querySelector('.overlay');
-      let menu = navWrap.querySelector('.menu');
-      let menuToggles = document.querySelectorAll('[data-menu-toggle]');
-      let tl = gsap.timeline({ paused: true });
-      
-      tl.fromTo(menu, { x: '100%' }, { x: '0%', duration: 0.7, ease: "power2.out" });
-      tl.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
-      
-      const openNav = () => {
-        navWrap.setAttribute('data-nav', 'open');
-        tl.play(0);
-      }
-      const closeNav = () => {
-        navWrap.setAttribute('data-nav', 'closed');
-        tl.reverse();
-      }
-      menuToggles.forEach((toggle) => {
-        toggle.addEventListener('click', () => {
-          const state = navWrap.getAttribute('data-nav');
-          state === 'open' ? closeNav() : openNav();
-        });
-      });
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && navWrap.getAttribute('data-nav') === 'open'){
-          closeNav();
-        }
-      });
-    }
-    document.addEventListener('DOMContentLoaded', initMenu);
-    
-    // Optional: Change header background on scroll
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('.header');
-      header.style.background = window.scrollY > 50 ? 'rgba(0,0,0,0.8)' : 'transparent';
-    });
-    
-    // Initialize the mobile menu with GSAP (Osmo UI Navigation)
-    function initMenu(){
-      let navWrap = document.querySelector('.nav');
-      let state = navWrap.getAttribute('data-nav');
-      let overlay = navWrap.querySelector('.overlay');
-      let menu = navWrap.querySelector('.menu');
-      let menuToggles = document.querySelectorAll('[data-menu-toggle]');
-      let tl = gsap.timeline({ paused: true });
-      
-      tl.fromTo(menu, { x: '100%' }, { x: '0%', duration: 0.7, ease: "power2.out" });
-      tl.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
-      
-      const openNav = () => {
-        navWrap.setAttribute('data-nav', 'open');
-        tl.play(0);
-      }
-      const closeNav = () => {
-        navWrap.setAttribute('data-nav', 'closed');
-        tl.reverse();
-      }
-      menuToggles.forEach((toggle) => {
-        toggle.addEventListener('click', () => {
-          state = navWrap.getAttribute('data-nav');
-          state === 'open' ? closeNav() : openNav();
-        });
-      });
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && navWrap.getAttribute('data-nav') === 'open'){
-          closeNav();
-        }
-      });
-    }
-    document.addEventListener('DOMContentLoaded', initMenu);
+}
 
+// Show loader when page loads
+showLoader();
+setTimeout(function() {
+    hideLoader();
+}, 2000);
 
-
-
-    // Make sure this script runs after the DOM content is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const links = document.querySelectorAll('.bottom-nav a');
-  const background = document.querySelector('.link-background');
-
-  // Handler to update active state and move background indicator
-  const clickHandler = (el, index) => {
-    links.forEach(link => link.classList.remove('active'));
-    el.classList.add('active');
-    // Calculate new position based on index (adjust the multiplier if needed)
-    background.style.transform = `translateX(${index * 100}%)`;
-  };
-
-  links.forEach((link, index) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      clickHandler(link, index);
-    });
-  });
-});
-
-
-
-// Fixed Testimonial Slider Functionality
+// Initialize AOS animations
 document.addEventListener('DOMContentLoaded', function() {
-  // Get slider elements
-  const track = document.querySelector('.slider-track');
-  const slides = document.querySelectorAll('.testimonial-slide');
-  const prevArrow = document.querySelector('.slider-prev');
-  const nextArrow = document.querySelector('.slider-next');
-  const dots = document.querySelectorAll('.pagination-dot');
-  
-  // Set initial state
-  let currentIndex = 0;
-  const slideCount = slides.length;
-  
-  // Set active class to first slide initially
-  slides[0].classList.add('active');
-  
-  // Move to a specific slide
-  const goToSlide = (index) => {
-    // Handle edge cases
-    if (index < 0) {
-      index = slideCount - 1;
-    } else if (index >= slideCount) {
-      index = 0;
-    }
-    
-    // Update current index
-    currentIndex = index;
-    
-    // Calculate the percentage to move
-    const movePercentage = index * (100 / slideCount);
-    
-    // Move the track using translateX
-    track.style.transform = `translateX(-${movePercentage}%)`;
-    
-    // Remove active class from all slides and add to current
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === currentIndex);
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        once: false,
+        mirror: true,
+        offset: 120,
+        delay: 0,
+        anchorPlacement: 'top-bottom',
+        disableMutationObserver: false,
     });
     
-    // Update active dot
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
+    // Navigation menu initialization
+    initMenu();
     
-    // Log movement for debugging
-    console.log(`Moving to slide ${currentIndex+1} of ${slideCount}, translateX(-${movePercentage}%)`);
-  };
-  
-  // Navigate to previous slide
-  const prevSlide = () => {
-    goToSlide(currentIndex - 1);
-  };
-  
-  // Navigate to next slide
-  const nextSlide = () => {
-    goToSlide(currentIndex + 1);
-  };
-  
-  // Set up event listeners
-  prevArrow.addEventListener('click', function(e) {
-    e.preventDefault();
-    prevSlide();
-  });
-  
-  nextArrow.addEventListener('click', function(e) {
-    e.preventDefault();
-    nextSlide();
-  });
-  
-  // Set up pagination dots
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', (e) => {
-      e.preventDefault();
-      goToSlide(i);
-    });
-  });
-  
-  // Enable keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      prevSlide();
-    } else if (e.key === 'ArrowRight') {
-      nextSlide();
-    }
-  });
-  
-  // Enable touch/swipe functionality
-  let touchStartX = 0;
-  let touchEndX = 0;
-  
-  const handleSwipe = () => {
-    const swipeThreshold = 50; // Minimum distance to be considered a swipe
+    // Initialize testimonial slider
+    initTestimonialSlider();
     
-    if (touchEndX < touchStartX - swipeThreshold) {
-      // Swipe left - next slide
-      nextSlide();
-    } else if (touchEndX > touchStartX + swipeThreshold) {
-      // Swipe right - previous slide
-      prevSlide();
+    // Initialize custom cursor for non-touch devices
+    if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
+        initCustomCursor();
     }
-  };
-  
-  track.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-  
-  track.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
-  
-  // Auto advance slides
-  let autoAdvance;
-  
-  const startAutoAdvance = () => {
-    autoAdvance = setInterval(() => {
-      nextSlide();
-    }, 6000); // Change slide every 6 seconds
-  };
-  
-  const stopAutoAdvance = () => {
-    clearInterval(autoAdvance);
-  };
-  
-  // Pause auto-advance on hover or touch
-  const slider = document.querySelector('.testimonials-slider');
-  
-  slider.addEventListener('mouseenter', stopAutoAdvance);
-  slider.addEventListener('mouseleave', startAutoAdvance);
-  slider.addEventListener('touchstart', stopAutoAdvance);
-  slider.addEventListener('touchend', () => {
-    // Delay restart to prevent immediate advance after touch
-    setTimeout(startAutoAdvance, 1000);
-  });
-  
-  // Initialize slider (go to first slide)
-  goToSlide(0);
-  startAutoAdvance();
+    
+    // Update clock with Slovak date format
+    updateTime();
+    setInterval(updateTime, 60000); // Update every minute
+    
+    // Add scroll event listener for header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        header.classList.toggle('scrolled', window.scrollY > 30);
+    });
 });
 
-
-
-  // Initialize AOS with custom settings
-  document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-      duration: 1000,           // Animation duration in milliseconds
-      easing: 'ease-out-cubic', // Easing for smoother animations
-      once: false,              // Whether animation should happen only once
-      mirror: true,             // Whether elements should animate out while scrolling up
-      offset: 120,              // Offset (in px) from the original trigger point
-      delay: 0,                 // Default delay before animation starts
-      anchorPlacement: 'top-bottom', // Define which position of the element regarding to window should trigger the animation
-      disableMutationObserver: false,
-    });
-  });
-  
-  // Advanced scroll animations for hero section
-  document.addEventListener('DOMContentLoaded', function() {
-    // Gold particle effect for hero section
-    const particlesScript = document.createElement('script');
-    particlesScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js';
-    document.body.appendChild(particlesScript);
+// Time and date display in Slovak format
+function updateTime() {
+    const now = new Date();
     
-    particlesScript.onload = function() {
-      const heroSection = document.getElementById('hero');
-      
-      // Create a canvas for particles
-      const particlesCanvas = document.createElement('canvas');
-      particlesCanvas.id = 'particles-canvas';
-      particlesCanvas.style.position = 'absolute';
-      particlesCanvas.style.top = '0';
-      particlesCanvas.style.left = '0';
-      particlesCanvas.style.width = '100%';
-      particlesCanvas.style.height = '100%';
-      particlesCanvas.style.zIndex = '0';
-      
-      // Insert the canvas as the first child of the hero section
-      if (heroSection.firstChild) {
-        heroSection.insertBefore(particlesCanvas, heroSection.firstChild);
-      } else {
-        heroSection.appendChild(particlesCanvas);
-      }
-      
-      // Initialize particles with a gold/luxury theme
-      window.particlesJS('particles-canvas', {
-        "particles": {
-          "number": {
-            "value": 40,
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
-          },
-          "color": {
-            "value": "#D4AF37"
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
-            },
-            "polygon": {
-              "nb_sides": 5
-            }
-          },
-          "opacity": {
-            "value": 0.3,
-            "random": true,
-            "anim": {
-              "enable": true,
-              "speed": 0.5,
-              "opacity_min": 0.1,
-              "sync": false
-            }
-          },
-          "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-              "enable": true,
-              "speed": 1,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#D4AF37",
-            "opacity": 0.2,
-            "width": 1
-          },
-          "move": {
-            "enable": true,
-            "speed": 1,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-              "enable": true,
-              "rotateX": 600,
-              "rotateY": 1200
-            }
-          }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "bubble"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "bubble": {
-              "distance": 200,
-              "size": 5,
-              "duration": 2,
-              "opacity": 1,
-              "speed": 3
-            },
-            "push": {
-              "particles_nb": 3
-            }
-          }
-        },
-        "retina_detect": true
-      });
+    // Update time display
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    document.getElementById('timeDisplay').textContent = `${hours}:${minutes}`;
+    
+    // Update date display with Slovak days of the week
+    const days = ['Ned', 'Pon', 'Uto', 'Str', 'Štv', 'Pia', 'Sob'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+    
+    const dayOfWeek = days[now.getDay()];
+    const month = months[now.getMonth()];
+    const dayOfMonth = now.getDate();
+    
+    document.getElementById('dateDisplay').textContent = `${dayOfWeek}, ${dayOfMonth}. ${month}`;
+}
+
+// Menu initialization
+function initMenu() {
+    let navWrap = document.querySelector('.nav');
+    let overlay = navWrap.querySelector('.overlay');
+    let menu = navWrap.querySelector('.menu');
+    let menuToggles = document.querySelectorAll('[data-menu-toggle]');
+    let tl = gsap.timeline({ paused: true });
+    
+    tl.fromTo(menu, { x: '100%' }, { x: '0%', duration: 0.7, ease: "power2.out" });
+    tl.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
+    
+    const openNav = () => {
+        navWrap.setAttribute('data-nav', 'open');
+        tl.play(0);
+    }
+    
+    const closeNav = () => {
+        navWrap.setAttribute('data-nav', 'closed');
+        tl.reverse();
+    }
+    
+    menuToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            const state = navWrap.getAttribute('data-nav');
+            state === 'open' ? closeNav() : openNav();
+        });
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && navWrap.getAttribute('data-nav') === 'open') {
+            closeNav();
+        }
+    });
+}
+
+// Testimonial slider functionality
+function initTestimonialSlider() {
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevArrow = document.querySelector('.slider-prev');
+    const nextArrow = document.querySelector('.slider-next');
+    const dots = document.querySelectorAll('.pagination-dot');
+    
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    
+    // Set active class to first slide initially
+    slides[0].classList.add('active');
+    
+    // Function to go to a specific slide
+    const goToSlide = (index) => {
+        // Handle edge cases
+        if (index < 0) {
+            index = slideCount - 1;
+        } else if (index >= slideCount) {
+            index = 0;
+        }
+        
+        // Update current index
+        currentIndex = index;
+        
+        // Calculate the percentage to move
+        const movePercentage = index * (100 / slideCount);
+        
+        // Move the track using translateX
+        track.style.transform = `translateX(-${movePercentage}%)`;
+        
+        // Update active class on slides
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === currentIndex);
+        });
+        
+        // Update active dot
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
     };
     
-    // Text reveal animation for hero section
-    const heroTitle = document.querySelector('.hero-title');
-    const heroDescription = document.querySelector('.hero-description');
+    // Navigate to previous slide
+    const prevSlide = () => {
+        goToSlide(currentIndex - 1);
+    };
     
-    if (heroTitle && heroDescription) {
-      // Create text animation wrapper
-      heroTitle.innerHTML = `<span class="animate-chars">${heroTitle.innerHTML}</span>`;
-      heroDescription.innerHTML = `<span class="animate-chars">${heroDescription.innerHTML}</span>`;
-      
-      // Add animation styles
-      const style = document.createElement('style');
-      style.textContent = `
-        .animate-chars {
-          display: inline-block;
-          overflow: hidden;
-        }
-        
-        @keyframes reveal {
-          0% { transform: translateY(100%); opacity: 0; }
-          100% { transform: translateY(0); opacity: 1; }
-        }
-        
-        .hero-title .animate-chars {
-          animation: reveal 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-        }
-        
-        .hero-description .animate-chars {
-          animation: reveal 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
-          opacity: 0;
-        }
-      `;
-      document.head.appendChild(style);
-    }
+    // Navigate to next slide
+    const nextSlide = () => {
+        goToSlide(currentIndex + 1);
+    };
     
-    // Add parallax effect to hero background
-    const heroBackground = document.querySelector('.hero-background');
-    if (heroBackground) {
-      window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        heroBackground.style.transform = `translate3d(0, ${scrolled * 0.4}px, 0)`;
-      });
-    }
-    
-    // Smoother scroll effect for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    // Set up event listeners
+    prevArrow.addEventListener('click', (e) => {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop,
-            behavior: 'smooth'
-          });
+        prevSlide();
+    });
+    
+    nextArrow.addEventListener('click', (e) => {
+        e.preventDefault();
+        nextSlide();
+    });
+    
+    // Set up pagination dots
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlide(i);
+        });
+    });
+    
+    // Enable keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
         }
-      });
     });
-  });
-  
-  // Create fancy images hover effects
-  document.addEventListener('DOMContentLoaded', function() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
     
-    galleryItems.forEach(item => {
-      item.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.02)';
-        this.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    // Enable touch swipe functionality
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    const handleSwipe = () => {
+        const swipeThreshold = 50; // Minimum distance to be considered a swipe
         
-        const image = this.querySelector('.gallery-image');
-        if (image) {
-          image.style.transform = 'scale(1.1)';
-          image.style.transition = 'transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left - next slide
+            nextSlide();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right - previous slide
+            prevSlide();
         }
-      });
-      
-      item.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-        
-        const image = this.querySelector('.gallery-image');
-        if (image) {
-          image.style.transform = 'scale(1.05)';
-        }
-      });
-    });
-  });
-  
-  // Animated circular menu
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuItems = document.querySelectorAll('.ln-menu__item');
+    };
     
-    menuItems.forEach((item, index) => {
-      // Add staggered animation delay
-      item.style.animationDelay = `${index * 0.1}s`;
-      
-      // Add subtle floating animation
-      item.style.animation = 'floatAnimation 3s ease-in-out infinite';
-      item.style.animationDelay = `${index * 0.2}s`;
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
     });
     
-    // Add keyframes for floating animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes floatAnimation {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0); }
-      }
-    `;
-    document.head.appendChild(style);
-  });
-  
-  // Scroll progress indicator
-  document.addEventListener('DOMContentLoaded', function() {
-    // Create progress bar element
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    progressBar.style.position = 'fixed';
-    progressBar.style.top = '0';
-    progressBar.style.left = '0';
-    progressBar.style.height = '3px';
-    progressBar.style.background = 'linear-gradient(90deg, var(--primary), var(--primary-light))';
-    progressBar.style.zIndex = '9999';
-    progressBar.style.transition = 'width 0.1s';
-    document.body.appendChild(progressBar);
-    
-    // Update progress bar width on scroll
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercentage = (scrollTop / scrollHeight) * 100;
-      
-      progressBar.style.width = scrollPercentage + '%';
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
     });
-  });
+    
+    // Auto advance slides
+    let autoAdvance;
+    
+    const startAutoAdvance = () => {
+        autoAdvance = setInterval(() => {
+            nextSlide();
+        }, 6000); // Change slide every 6 seconds
+    };
+    
+    const stopAutoAdvance = () => {
+        clearInterval(autoAdvance);
+    };
+    
+    // Pause auto-advance on hover or touch
+    const slider = document.querySelector('.testimonials-slider');
+    
+    slider.addEventListener('mouseenter', stopAutoAdvance);
+    slider.addEventListener('mouseleave', startAutoAdvance);
+    slider.addEventListener('touchstart', stopAutoAdvance);
+    slider.addEventListener('touchend', () => {
+        // Delay restart to prevent immediate advance after touch
+        setTimeout(startAutoAdvance, 1000);
+    });
+    
+    // Initialize slider and start auto-advance
+    goToSlide(0);
+    startAutoAdvance();
+}
 
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Only apply custom cursor on non-touch devices
-    if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
-      initCustomCursor();
-    }
+// Custom cursor implementation
+function initCustomCursor() {
+    // Add cursor elements to the DOM
+    const cursorDot = document.createElement('div');
+    cursorDot.className = 'cursor-dot';
     
-    function initCustomCursor() {
-      // Add our cursor elements to the DOM
-      const cursorDot = document.createElement('div');
-      cursorDot.className = 'cursor-dot';
-      
-      const cursorCircle = document.createElement('div');
-      cursorCircle.className = 'cursor-circle';
-      
-      document.body.appendChild(cursorDot);
-      document.body.appendChild(cursorCircle);
-      
-      // Add class to HTML to hide default cursor
-      document.documentElement.classList.add('has-custom-cursor');
-      
-      // Track mouse position variables
-      let mouseX = 0;
-      let mouseY = 0;
-      let dotX = 0;
-      let dotY = 0;
-      let circleX = 0;
-      let circleY = 0;
-      
-      // Initialize cursor position off-screen
-      cursorDot.style.transform = 'translate(-100px, -100px) translate(-50%, -50%)';
-      cursorCircle.style.transform = 'translate(-100px, -100px) translate(-50%, -50%)';
-      
-      // Throttle mouse move events for performance
-      let lastMouseMoveTime = 0;
-      
-      // Listen for mouse movements
-      document.addEventListener('mousemove', function(e) {
+    const cursorCircle = document.createElement('div');
+    cursorCircle.className = 'cursor-circle';
+    
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorCircle);
+    
+    // Add class to HTML to hide default cursor
+    document.documentElement.classList.add('has-custom-cursor');
+    
+    // Track mouse position
+    let mouseX = 0;
+    let mouseY = 0;
+    let dotX = 0;
+    let dotY = 0;
+    let circleX = 0;
+    let circleY = 0;
+    
+    // Initialize cursor position off-screen
+    cursorDot.style.transform = 'translate(-100px, -100px) translate(-50%, -50%)';
+    cursorCircle.style.transform = 'translate(-100px, -100px) translate(-50%, -50%)';
+    
+    // Throttle mouse move events for performance
+    let lastMouseMoveTime = 0;
+    
+    // Listen for mouse movements
+    document.addEventListener('mousemove', function(e) {
         const now = Date.now();
         if (now - lastMouseMoveTime > 5) { // Throttle to every 5ms
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          lastMouseMoveTime = now;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            lastMouseMoveTime = now;
         }
-      });
-      
-      // Listen for mouse events to change cursor appearance
-      document.addEventListener('mousedown', function() {
+    });
+    
+    // Mouse events for cursor appearance
+    document.addEventListener('mousedown', function() {
         cursorDot.classList.add('active');
         cursorCircle.classList.add('active');
-      });
-      
-      document.addEventListener('mouseup', function() {
+    });
+    
+    document.addEventListener('mouseup', function() {
         cursorDot.classList.remove('active');
         cursorCircle.classList.remove('active');
-      });
-      
-      // Add hover effect to interactive elements
-      const interactiveElements = document.querySelectorAll(
+    });
+    
+    // Add hover effect to interactive elements
+    const interactiveElements = document.querySelectorAll(
         'a, button, .glass-card, .ln-menu__item, .gallery-item, .service-card, ' +
         'input, select, .menu-link, .slider-arrow, .form-input'
-      );
-      
-      interactiveElements.forEach(element => {
+    );
+    
+    interactiveElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
-          cursorDot.classList.add('hover');
-          cursorCircle.classList.add('hover');
+            cursorDot.classList.add('hover');
+            cursorCircle.classList.add('hover');
         });
         
         element.addEventListener('mouseleave', function() {
-          cursorDot.classList.remove('hover');
-          cursorCircle.classList.remove('hover');
+            cursorDot.classList.remove('hover');
+            cursorCircle.classList.remove('hover');
         });
-      });
-      
-      // Hide cursor when leaving window
-      document.addEventListener('mouseleave', function() {
+    });
+    
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', function() {
         cursorDot.style.opacity = '0';
         cursorCircle.style.opacity = '0';
-      });
-      
-      document.addEventListener('mouseenter', function() {
+    });
+    
+    document.addEventListener('mouseenter', function() {
         cursorDot.style.opacity = '1';
         cursorCircle.style.opacity = '1';
-      });
-      
-      // Smooth cursor animation using requestAnimationFrame
-      function animateCursor() {
+    });
+    
+    // Smooth cursor animation
+    function animateCursor() {
         // Calculate smooth movement with easing
         dotX += (mouseX - dotX) * 0.7;
         dotY += (mouseY - dotY) * 0.7;
@@ -3325,46 +2862,62 @@ document.addEventListener('DOMContentLoaded', function() {
         circleX += (mouseX - circleX) * 0.3; // Slower follow for trailing effect
         circleY += (mouseY - circleY) * 0.3;
         
-        // Apply transforms - make sure both use the same transform pattern
+        // Apply transforms
         cursorDot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
         cursorCircle.style.transform = `translate(${circleX}px, ${circleY}px) translate(-50%, -50%)`;
         
         requestAnimationFrame(animateCursor);
-      }
-      
-      // Start the animation loop
-      animateCursor();
-      
-      // Special effects for different contexts
-      document.querySelectorAll('.gallery-item, .service-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          cursorCircle.style.mixBlendMode = 'difference';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-          cursorCircle.style.mixBlendMode = 'normal';
-        });
-      });
-      
-      // Add magnetic effect to buttons
-      document.querySelectorAll('button').forEach(button => {
-        button.addEventListener('mousemove', function(e) {
-          const rect = this.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-        });
-        
-        button.addEventListener('mouseleave', function() {
-          this.style.transform = 'translate(0px, 0px)';
-        });
-      });
     }
-  });
+    
+    // Start the animation loop
+    animateCursor();
+}
 
-  </script>
-  <!-- 2. Then add the AOS script at the bottom of your body before closing </body> tag -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+function initMenu() {
+    let navWrap = document.querySelector('.nav');
+    let overlay = navWrap.querySelector('.overlay');
+    let menu = navWrap.querySelector('.menu');
+    let menuLinks = navWrap.querySelectorAll('.menu-link');
+    let menuToggles = document.querySelectorAll('[data-menu-toggle]');
+    let tl = gsap.timeline({ paused: true });
+    
+    tl.fromTo(menu, { x: '100%' }, { x: '0%', duration: 0.7, ease: "power2.out" });
+    tl.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
+    
+    const openNav = () => {
+        navWrap.setAttribute('data-nav', 'open');
+        tl.play(0);
+    }
+    
+    const closeNav = () => {
+        navWrap.setAttribute('data-nav', 'closed');
+        tl.reverse();
+    }
+    
+    // Close menu when any menu link is clicked
+    menuLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            // Prevent default anchor behavior if needed
+            // e.preventDefault(); 
+            closeNav();
+        });
+    });
+    
+    menuToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            const state = navWrap.getAttribute('data-nav');
+            state === 'open' ? closeNav() : openNav();
+        });
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && navWrap.getAttribute('data-nav') === 'open') {
+            closeNav();
+        }
+    });
+}
+</script>
 </body>
 </html>
