@@ -164,11 +164,7 @@ section {
   transform: translateY(0) !important;
 }
 
-/* Additional fallback for AOS animations */
-[data-aos] {
-  opacity: 1 !important;
-  transform: none !important;
-}
+
 
 .footer-links a:hover {
   color: var(--primary);
@@ -1970,7 +1966,491 @@ section:nth-child(even) .section-anchor {
   color: var(--primary-light);
 }
 
+/* Testimonials Slider */
+.testimonials-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 60px;
+    overflow: hidden;
+}
 
+.slider-content {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 500%;
+}
+
+.testimonial-slide {
+    width: 20%;
+    flex-shrink: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.testimonial-wrapper {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    padding: var(--space-lg);
+    position: relative;
+    transition: var(--transition);
+    transform-origin: center;
+    transform: scale(0.98);
+    opacity: 0.9;
+    height: 100%;
+}
+
+.slider-track .testimonial-slide.active .testimonial-wrapper {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -25px;
+    left: 30px;
+    font-size: var(--font-size-xl);
+    color: var(--primary);
+}
+
+.testimonial-text {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-md);
+    line-height: var(--line-height-loose);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: var(--space-sm);
+    border: 2px solid var(--primary);
+}
+
+.author-details {
+    font-weight: 500;
+}
+
+.author-name {
+    color: var(--primary);
+}
+
+.author-title {
+    font-size: var(--font-size-xs);
+    color: var(--light-muted);
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.slider-arrow:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary);
+    stroke-width: 2;
+}
+
+.slider-prev {
+    left: 0;
+}
+
+.slider-next {
+    right: 0;
+}
+
+.slider-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.pagination-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.pagination-dot.active {
+    width: 16px;
+    height: 10px;
+    background-color: var(--primary);
+    border-radius: 10px;
+    transform: scale(1.2);
+}
+
+.pagination-dot:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Alternate color for light sections */
+section:nth-child(even) .pagination-dot {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+section:nth-child(even) .pagination-dot.active {
+    background-color: var(--primary);
+}
+
+section:nth-child(even) .author-title {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive styles for testimonials */
+@media (max-width: 768px) {
+    .testimonials-slider {
+        padding: 0 40px;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slider-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .testimonial-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .author-image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonials-slider {
+        padding: 0 30px;
+    }
+    
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .slider-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .pagination-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .pagination-dot.active {
+        width: 14px;
+    }
+    
+    .testimonial-text {
+        font-size: 0.85rem;
+    }
+    
+    .quote-icon {
+        top: -20px;
+        left: 20px;
+        font-size: 2rem;
+    }
+}
+/* Footer Mobile View Adjustments */
+@media (max-width: 768px) {
+  /* Make footer columns stack vertically */
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr !important; /* Force single column */
+    gap: 2rem;
+  }
+  
+  /* Remove any span settings that might affect columns */
+  .footer-column, 
+  .brand-column {
+    grid-column: 1 !important; /* Force all columns to be full width */
+  }
+  
+  /* Add more spacing between footer sections */
+  .footer-column {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Remove border from last column */
+  .footer-column:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  
+  /* Ensure copyright section stacks vertically */
+  .footer-copyright {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 80px; /* Extra space for bottom nav */
+  }
+  
+  /* Adjust footer heading spacing */
+  .footer-heading {
+    margin-bottom: 1rem;
+  }
+  
+  /* Make sure footer links display properly */
+  .footer-links {
+    width: 100%;
+  }
+  
+  /* Add spacing for bottom nav */
+  .footer-main {
+    padding-bottom: 4rem;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .footer-legal {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .footer-content {
+    gap: 1.5rem;
+  }
+  
+  .footer-column {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .footer-logo {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+/* Disable hover and before effects for hero navigation on mobile */
+@media (max-width: 768px) {
+  /* Prevent width expansion on hover for circular menu items */
+  .ln-menu__item:hover {
+    width: 60px !important; /* Keep original width */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important; /* Keep original shadow */
+  }
+  
+  /* Hide the background gradient on hover */
+  .ln-menu__item:hover::before,
+  .ln-menu__item:hover::after {
+    opacity: 0 !important;
+  }
+  
+  /* Prevent icon scaling to zero on hover */
+  .ln-menu__item:hover ion-icon {
+    transform: scale(1) !important;
+    color: var(--primary) !important;
+    transition-delay: 0s !important;
+  }
+  
+  /* Keep label hidden on hover */
+  .ln-menu__item:hover .ln-menu__label {
+    transform: scale(0) !important;
+    transition-delay: 0s !important;
+  }
+  
+  /* Make links work with a single tap */
+  .ln-menu__item {
+    pointer-events: auto;
+  }
+  
+  /* Make icons smaller on mobile */
+  .ln-menu {
+    gap: 15px;
+  }
+  
+  .ln-menu__item {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ln-menu__item ion-icon {
+    font-size: 1.5em;
+  }
+}
+
+/* Even smaller for very small screens */
+@media (max-width: 480px) {
+  .ln-menu {
+    gap: 10px;
+  }
+  
+  .ln-menu__item {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .ln-menu__item:hover {
+    width: 45px !important;
+  }
+}
+
+
+
+/* Stronger mobile section padding rules */
+@media only screen and (max-width: 768px) {
+  body section {
+    padding-top: 10rem !important;
+    padding-bottom: 10rem !important;
+    
+  }
+  
+  body #hero {
+    padding-top: 6rem !important;
+    padding-bottom: 17rem !important;
+  }
+  
+  body #services,
+  body #gallery,
+  body #testimonials,
+  body #booking,
+  body #contact {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  /* Direct style override for .container within sections */
+  body section > .container {
+    padding-top: 7rem !important;
+    padding-bottom: 7rem !important;
+  }
+}
+
+/* Enhanced Mobile Testimonials */
+@media (max-width: 768px) {
+  /* Remove arrows completely on mobile */
+  .testimonials-slider .slider-arrow {
+    display: none !important;
+  }
+  
+  /* Remove side padding so testimonials use full width */
+  .testimonials-slider {
+    padding: 0 !important;
+  }
+  
+  /* Make testimonial boxes bigger */
+  .testimonial-wrapper {
+    padding: 2rem !important;
+    transform: scale(1) !important;
+    opacity: 1 !important;
+  }
+  
+  /* Increase text size */
+  .testimonial-text {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Make author image larger */
+  .author-image {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  
+  /* Make author name larger */
+  .author-name {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Make author title larger */
+  .author-title {
+    font-size: 0.95rem !important;
+  }
+  
+  /* Make quote icon larger */
+  .quote-icon {
+    font-size: 2.5rem !important;
+    top: -30px !important;
+  }
+  
+  /* Add more space between pagination dots */
+  .slider-pagination {
+    gap: 1rem !important;
+    margin-top: 2rem !important;
+  }
+  
+  /* Make pagination dots larger */
+  .pagination-dot {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  
+  .pagination-dot.active {
+    width: 20px !important;
+    height: 12px !important;
+  }
+}
+
+/* Even more adjustments for smaller phones */
+@media (max-width: 480px) {
+  .testimonial-text {
+    font-size: 1rem !important;
+  }
+  
+  .author-image {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
   </style>
 </head>
 <!-- Adding AOS library -->
@@ -2279,130 +2759,130 @@ section:nth-child(even) .section-anchor {
         </div>
     </section>
 
-    <!-- Testimonials Section with improved arrows -->
-    <section id="testimonials">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Referencie <span class="gradient-text">Klientov</span></h2>
-                <p class="section-subtitle">
-                    Pozrite si, čo hovoria naši klienti o svojich skúsenostiach v LuxeNails.
-                </p>
-            </div>
-            
-            <div class="testimonials-slider">
-                <!-- Fixed Left Arrow -->
-                <div class="slider-arrow slider-prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
+    <!-- Testimonials Section -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">Referencie <span class="gradient-text">Klientov</span></h2>
+      <p class="section-subtitle">
+        Pozrite si, čo hovoria naši klienti o svojich skúsenostiach v Beauty M Academy.
+      </p>
+    </div>
+    
+    <div class="testimonials-slider">
+      <!-- Left Arrow -->
+      <div class="slider-arrow slider-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </div>
+      <div class="slider-content">
+        <div class="slider-track">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-wrapper glass-card">
+              <div class="quote-icon">❝</div>
+              <p class="testimonial-text">
+                Kurz predbehol moje očakávania. Lektorky boli profesionálne a venovali sa nám individuálne. Teraz mám vlastný salón a stále používam techniky, ktoré som sa naučila v Beauty M Academy.
+              </p>
+              <div class="testimonial-author">
+                <img src="https://i.postimg.cc/T1cDYWNn/pexels-andrea-piacquadio-3769021.jpg" alt="Klient" class="author-image" />
+                <div class="author-details">
+                  <div class="author-name">Sofia K.</div>
+                  <div class="author-title">Absolventka kurzu</div>
                 </div>
-                <div class="slider-content">
-                  <div class="slider-track">
-                      <!-- Testimonial 1 -->
-                      <div class="testimonial-slide">
-                          <div class="testimonial-wrapper glass-card">
-                              <div class="quote-icon">❝</div>
-                              <p class="testimonial-text">
-                                  Pozornosť k detailom v LuxeNails je neprekonateľná. Moje nechty nikdy nevyzerali lepšie a dizajn inšpirovaný sklom, ktorý mi vytvorili, získal nespočetné komplimenty. Atmosféra salónu robí z každej návštevy luxusný zážitok.
-                              </p>
-                              <div class="testimonial-author">
-                                  <img src="https://via.placeholder.com/100x100?text=Client" alt="Klient" class="author-image" />
-                                  <div class="author-details">
-                                      <div class="author-name">Sofia Richardsová</div>
-                                      <div class="author-title">Pravidelná klientka</div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <!-- Testimonial 2 -->
-                      <div class="testimonial-slide">
-                          <div class="testimonial-wrapper glass-card">
-                              <div class="quote-icon">❝</div>
-                              <p class="testimonial-text">
-                                  Som nesmierne ohromená kvalitou a trvanlivosťou mojich gélových nechtov z LuxeNails. Technici sú skutoční umelci, ktorí si dávajú záležať na dokonalosti. Ich pozornosť venovaná hygiene a bezpečnosti je tiež obdivuhodná, vďaka čomu sa cítim počas každej návštevy pokojne.
-                              </p>
-                              <div class="testimonial-author">
-                                  <img src="https://via.placeholder.com/100x100?text=Client2" alt="Klient" class="author-image" />
-                                  <div class="author-details">
-                                      <div class="author-name">Emma Johnsová</div>
-                                      <div class="author-title">Mesačná návštevníčka</div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <!-- Testimonial 3 -->
-                      <div class="testimonial-slide">
-                          <div class="testimonial-wrapper glass-card">
-                              <div class="quote-icon">❝</div>
-                              <p class="testimonial-text">
-                                  LuxeNails úplne zmenili moju rutinu starostlivosti o nechty. Bojovala som so slabými, lámavými nechtami, kým som nezačala ich posilňujúce ošetrenia. Personál je neuveriteľne znalý a poskytol mi personalizované odporúčania, ktoré spôsobili obrovský rozdiel.
-                              </p>
-                              <div class="testimonial-author">
-                                  <img src="https://via.placeholder.com/100x100?text=Client3" alt="Klient" class="author-image" />
-                                  <div class="author-details">
-                                      <div class="author-name">Olivia Martinezová</div>
-                                      <div class="author-title">Prvýkrát klientka</div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <!-- Testimonial 4 -->
-                      <div class="testimonial-slide">
-                          <div class="testimonial-wrapper glass-card">
-                              <div class="quote-icon">❝</div>
-                              <p class="testimonial-text">
-                                  Ako niekto, kto pracuje v módnom priemysle, potrebujem mať svoje nechty konzistentne bezchybné. LuxeNails chápe tento tlak a vždy dodáva mimoriadne výsledky. Ich nechtové umenie je skutočne špičkové a dôverujem im pre všetky moje fotenia a podujatia.
-                              </p>
-                              <div class="testimonial-author">
-                                  <img src="https://via.placeholder.com/100x100?text=Client4" alt="Klient" class="author-image" />
-                                  <div class="author-details">
-                                      <div class="author-name">Isabella Chenová</div>
-                                      <div class="author-title">Módna stylistka</div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <!-- Testimonial 5 -->
-                      <div class="testimonial-slide">
-                          <div class="testimonial-wrapper glass-card">
-                              <div class="quote-icon">❝</div>
-                              <p class="testimonial-text">
-                                  Oceňujem, ako LuxeNails sleduje najnovšie trendy a pritom si zachováva svoj záväzok ku kvalite. Ich sezónne kolekcie sú vždy inšpiratívne a personál poskytuje užitočné návrhy bez nátlaku. Je to viac než len nechtové štúdio – je to luxusný zážitok, ktorý stojí za každé euro.
-                              </p>
-                              <div class="testimonial-author">
-                                  <img src="https://via.placeholder.com/100x100?text=Client5" alt="Klient" class="author-image" />
-                                  <div class="author-details">
-                                      <div class="author-name">Zoe Williamsová</div>
-                                      <div class="author-title">Verná zákazníčka</div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
               </div>
-              
-              <!-- Fixed Right Arrow -->
-              <div class="slider-arrow slider-next">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-              </div>
+            </div>
           </div>
           
-          <!-- Pagination Dots -->
-          <div class="slider-pagination">
-              <span class="pagination-dot active" data-index="0"></span>
-              <span class="pagination-dot" data-index="1"></span>
-              <span class="pagination-dot" data-index="2"></span>
-              <span class="pagination-dot" data-index="3"></span>
-              <span class="pagination-dot" data-index="4"></span>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-wrapper glass-card">
+              <div class="quote-icon">❝</div>
+              <p class="testimonial-text">
+                Som nesmierne vďačná za dôkladný prístup a profesionalitu celého tímu. Naučili ma nielen technické zručnosti, ale aj ako viesť úspešné podnikanie. Odporúčam každému, kto sa chce v tomto odbore realizovať.
+              </p>
+              <div class="testimonial-author">
+                <img src="https://i.postimg.cc/8kbJd0T4/pexels-andrea-piacquadio-762020.jpg" alt="Klient" class="author-image" />
+                <div class="author-details">
+                  <div class="author-name">Emma J.</div>
+                  <div class="author-title">Majiteľka salónu</div>
+                </div>
+              </div>
+            </div>
           </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-wrapper glass-card">
+              <div class="quote-icon">❝</div>
+              <p class="testimonial-text">
+                Ako úplný začiatočník som sa bála, že to nezvládnem, ale trpezlivosť a podpora od tímu Beauty M Academy bola úžasná. Dnes pracujem v prestížnom salóne a vďačím za to kvalitnej príprave z akadémie.
+              </p>
+              <div class="testimonial-author">
+                <img src="https://i.postimg.cc/T2BjN0Tm/pexels-andrea-piacquadio-733872.jpg" alt="Klient" class="author-image" />
+                <div class="author-details">
+                  <div class="author-name">Olivia M.</div>
+                  <div class="author-title">Nail technička</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 4 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-wrapper glass-card">
+              <div class="quote-icon">❝</div>
+              <p class="testimonial-text">
+                Praktické cvičenia a moderné techniky, ktoré nás naučili, mi okamžite pomohli v mojej kariére. Mnoho klientov ma vyhľadáva práve pre tieto špeciálne zručnosti, ktoré som získala v Beauty M Academy.
+              </p>
+              <div class="testimonial-author">
+                <img src="https://i.postimg.cc/kGzD7P7B/pexels-andrea-piacquadio-774909.jpg" alt="Klient" class="author-image" />
+                <div class="author-details">
+                  <div class="author-name">Isabella C.</div>
+                  <div class="author-title">Profesionálna vizážistka</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 5 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-wrapper glass-card">
+              <div class="quote-icon">❝</div>
+              <p class="testimonial-text">
+                Certifikát z Beauty M Academy mi otvoril dvere do prestížnych salónov. Investícia do vzdelania sa mi mnohonásobne vrátila a odporúčam tento kurz každému, kto chce v beauty biznise uspieť.
+              </p>
+              <div class="testimonial-author">
+                <img src="https://i.postimg.cc/BvKbRYrC/pexels-andrea-piacquadio-3777943.jpg" alt="Klient" class="author-image" />
+                <div class="author-details">
+                  <div class="author-name">Zoe W.</div>
+                  <div class="author-title">Beauty podnikateľka</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </section>
+      
+      <!-- Right Arrow -->
+      <div class="slider-arrow slider-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Pagination Dots -->
+    <div class="slider-pagination">
+      <span class="pagination-dot active" data-index="0"></span>
+      <span class="pagination-dot" data-index="1"></span>
+      <span class="pagination-dot" data-index="2"></span>
+      <span class="pagination-dot" data-index="3"></span>
+      <span class="pagination-dot" data-index="4"></span>
+    </div>
+  </div>
+</section>
 
   <!-- Booking Section -->
   <section id="booking">
@@ -2697,139 +3177,178 @@ function initMenu() {
     });
 }
 
-// Testimonial slider functionality
+// Testimonial slider with improved touch support
 function initTestimonialSlider() {
-    const track = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const prevArrow = document.querySelector('.slider-prev');
-    const nextArrow = document.querySelector('.slider-next');
-    const dots = document.querySelectorAll('.pagination-dot');
+  const track = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevArrow = document.querySelector('.slider-prev');
+  const nextArrow = document.querySelector('.slider-next');
+  const dots = document.querySelectorAll('.pagination-dot');
+  
+  let currentIndex = 0;
+  const slideCount = slides.length;
+  
+  // Set active class to first slide initially
+  slides[0].classList.add('active');
+  
+  // Function to go to a specific slide
+  const goToSlide = (index) => {
+    // Handle edge cases
+    if (index < 0) {
+      index = slideCount - 1;
+    } else if (index >= slideCount) {
+      index = 0;
+    }
     
-    let currentIndex = 0;
-    const slideCount = slides.length;
+    // Update current index
+    currentIndex = index;
     
-    // Set active class to first slide initially
-    slides[0].classList.add('active');
+    // Calculate the percentage to move
+    const movePercentage = index * (100 / slideCount);
     
-    // Function to go to a specific slide
-    const goToSlide = (index) => {
-        // Handle edge cases
-        if (index < 0) {
-            index = slideCount - 1;
-        } else if (index >= slideCount) {
-            index = 0;
-        }
-        
-        // Update current index
-        currentIndex = index;
-        
-        // Calculate the percentage to move
-        const movePercentage = index * (100 / slideCount);
-        
-        // Move the track using translateX
-        track.style.transform = `translateX(-${movePercentage}%)`;
-        
-        // Update active class on slides
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === currentIndex);
-        });
-        
-        // Update active dot
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-    };
+    // Move the track using translateX
+    track.style.transform = `translateX(-${movePercentage}%)`;
     
-    // Navigate to previous slide
-    const prevSlide = () => {
-        goToSlide(currentIndex - 1);
-    };
-    
-    // Navigate to next slide
-    const nextSlide = () => {
-        goToSlide(currentIndex + 1);
-    };
-    
-    // Set up event listeners
-    prevArrow.addEventListener('click', (e) => {
-        e.preventDefault();
-        prevSlide();
+    // Update active class on slides
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
     });
     
-    nextArrow.addEventListener('click', (e) => {
-        e.preventDefault();
-        nextSlide();
-    });
-    
-    // Set up pagination dots
+    // Update active dot
     dots.forEach((dot, i) => {
-        dot.addEventListener('click', (e) => {
-            e.preventDefault();
-            goToSlide(i);
-        });
+      dot.classList.toggle('active', i === currentIndex);
     });
-    
-    // Enable keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            prevSlide();
-        } else if (e.key === 'ArrowRight') {
-            nextSlide();
-        }
+  };
+  
+  // Navigate to previous slide
+  const prevSlide = () => {
+    goToSlide(currentIndex - 1);
+  };
+  
+  // Navigate to next slide
+  const nextSlide = () => {
+    goToSlide(currentIndex + 1);
+  };
+  
+  // Set up event listeners for arrows
+  prevArrow.addEventListener('click', (e) => {
+    e.preventDefault();
+    prevSlide();
+  });
+  
+  nextArrow.addEventListener('click', (e) => {
+    e.preventDefault();
+    nextSlide();
+  });
+  
+  // Set up pagination dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(i);
     });
+  });
+  
+  // Enhanced Touch Support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isSwiping = false;
+  let startTime = 0;
+  let startTransform = 0;
+  
+  // Initial touch handler
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    startTime = new Date().getTime();
+    startTransform = parseFloat(track.style.transform.replace('translateX(', '').replace('%)', '') || 0);
+    isSwiping = true;
     
-    // Enable touch swipe functionality
-    let touchStartX = 0;
-    let touchEndX = 0;
+    // Pause auto advance during swipe
+    clearInterval(autoAdvance);
+  }, { passive: true });
+  
+  // Track touch movement for live dragging effect
+  track.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
     
-    const handleSwipe = () => {
-        const swipeThreshold = 50; // Minimum distance to be considered a swipe
-        
-        if (touchEndX < touchStartX - swipeThreshold) {
-            // Swipe left - next slide
-            nextSlide();
-        } else if (touchEndX > touchStartX + swipeThreshold) {
-            // Swipe right - previous slide
-            prevSlide();
-        }
-    };
+    const currentX = e.touches[0].clientX;
+    const diff = (touchStartX - currentX) / track.clientWidth * 100;
+    const newTransform = startTransform - diff;
     
-    track.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
+    // Limit the drag within bounds (with resistance at edges)
+    if (newTransform > 0) {
+      track.style.transform = `translateX(${newTransform * 0.3}%)`;
+    } else if (newTransform < -(100 * (slideCount - 1))) {
+      const excess = newTransform + (100 * (slideCount - 1));
+      track.style.transform = `translateX(${-(100 * (slideCount - 1)) + excess * 0.3}%)`;
+    } else {
+      track.style.transform = `translateX(${newTransform}%)`;
+    }
     
-    track.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
+    // Prevent default scroll behavior on touchmove
+    e.preventDefault();
+  }, { passive: false });
+  
+  // Touch end handler for swipe detection
+  track.addEventListener('touchend', (e) => {
+    if (!isSwiping) return;
+    isSwiping = false;
     
-    // Auto advance slides
-    let autoAdvance;
+    touchEndX = e.changedTouches[0].clientX;
+    const touchDuration = new Date().getTime() - startTime;
+    const touchDistance = touchStartX - touchEndX;
+    const threshold = track.clientWidth * 0.15; // 15% of slider width
     
-    const startAutoAdvance = () => {
-        autoAdvance = setInterval(() => {
-            nextSlide();
-        }, 6000); // Change slide every 6 seconds
-    };
+    // Swipe detection - either fast swipe or more than threshold
+    if (
+      (touchDistance > threshold) || 
+      (touchDistance > track.clientWidth * 0.05 && touchDuration < 250)
+    ) {
+      // Swipe left - next slide
+      nextSlide();
+    } else if (
+      (touchDistance < -threshold) || 
+      (touchDistance < -track.clientWidth * 0.05 && touchDuration < 250)
+    ) {
+      // Swipe right - previous slide
+      prevSlide();
+    } else {
+      // No swipe or too small swipe - go back to current slide
+      goToSlide(currentIndex);
+    }
     
-    const stopAutoAdvance = () => {
-        clearInterval(autoAdvance);
-    };
-    
-    // Pause auto-advance on hover or touch
-    const slider = document.querySelector('.testimonials-slider');
-    
-    slider.addEventListener('mouseenter', stopAutoAdvance);
-    slider.addEventListener('mouseleave', startAutoAdvance);
-    slider.addEventListener('touchstart', stopAutoAdvance);
-    slider.addEventListener('touchend', () => {
-        // Delay restart to prevent immediate advance after touch
-        setTimeout(startAutoAdvance, 1000);
-    });
-    
-    // Initialize slider and start auto-advance
-    goToSlide(0);
-    startAutoAdvance();
+    // Restart auto advance
+    restartAutoAdvance();
+  });
+  
+  // Auto advance slides
+  let autoAdvance = setInterval(nextSlide, 6000); // Change slide every 6 seconds
+  
+  // Function to restart auto advance
+  function restartAutoAdvance() {
+    clearInterval(autoAdvance);
+    autoAdvance = setInterval(nextSlide, 6000);
+  }
+  
+  // Pause auto-advance on hover
+  const slider = document.querySelector('.testimonials-slider');
+  
+  slider.addEventListener('mouseenter', () => {
+    clearInterval(autoAdvance);
+  });
+  
+  slider.addEventListener('mouseleave', () => {
+    restartAutoAdvance();
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+    }
+  });
 }
 
 // Custom cursor implementation
@@ -2977,6 +3496,17 @@ function initMenu() {
         }
     });
 }
+// Initialize AOS animations
+document.addEventListener('DOMContentLoaded', function() {
+  AOS.init({
+    duration: 1000,          // Animation duration in milliseconds
+    easing: 'ease-out-cubic', // Easing function
+    once: false,             // Whether animation should happen only once
+    offset: 120,             // Offset (in px) from the original trigger point
+    delay: 0,                // Delay animation
+    anchorPlacement: 'top-bottom', // Defines which position of the element triggers the animation
+  });
+});
 </script>
 </body>
 </html>
