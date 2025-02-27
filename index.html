@@ -1953,6 +1953,24 @@ section:nth-child(even) .section-anchor {
 }
 
 
+.contact-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.contact-card-link:hover .glass-card {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
+}
+
+.contact-card-link:hover .contact-icon {
+  color: var(--primary-light);
+}
+
+
   </style>
 </head>
 <!-- Adding AOS library -->
@@ -1989,13 +2007,10 @@ section:nth-child(even) .section-anchor {
                 </a>
                 
                 <!-- Time Display with Slovak calendar -->
-                <div class="current-time">
-                    <div class="time-display" id="timeDisplay">12:00</div>
-                    <div class="date-display" id="dateDisplay">Str, Feb 26</div>
-                </div>
+              
                 
                 <!-- Hamburger menu button in header -->
-                <buttonone role="button1" data-menu-toggle="" class="menu-button-header" aria-expanded="false">
+                <one role="button1" data-menu-toggle=""  aria-expanded="false">
                     <div class="icon-wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -2003,7 +2018,7 @@ section:nth-child(even) .section-anchor {
                             <line x1="3" y1="18" x2="21" y2="18"></line>
                         </svg>
                     </div>
-                </buttonone>
+                </one>
             </nav>
         </div>
     </header>
@@ -2114,17 +2129,17 @@ section:nth-child(even) .section-anchor {
 <!-- Main Content -->
 <main>
     <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Akreditované kurzy Beauty M Academy </h1>
-            <p class="hero-description">
-              Chcete pracovať v oblasti krásy, získať stabilné zamestnanie alebo si otvoriť vlastný salón?
-              Náš kurz je ideálnym prvým krokom.
-            </p>
-            <a href="#booking" class="hero-button">
-                <button>Prihlásiť sa</button>
-            </a>
-        </div>
+    <section id="hero" data-bg="https://i.postimg.cc/Xv2t64Rm/temp-Image-Q1-Fr-Zd.avif">
+      <div class="hero-content">
+          <h1 class="hero-title">Akreditované kurzy Beauty M Academy</h1>
+          <p class="hero-description">
+            Chcete pracovať v oblasti krásy, získať stabilné zamestnanie alebo si otvoriť vlastný salón?
+            Náš kurz je ideálnym prvým krokom.
+          </p>
+          <a href="#booking" class="hero-button">
+              <button>Prihlásiť sa</button>
+          </a>
+      </div>
         
         <!-- Circular Menu in Footer -->
         <div class="hero-footer-menu">
@@ -2148,52 +2163,83 @@ section:nth-child(even) .section-anchor {
                     <span class="ln-menu__label">Mapa</span>
                 </li>
               </a>
-                <li class="ln-menu__item" style="--i:#D4AF37; --j:#e5c76b;">
-                    <span class="ln-menu__icon"><ion-icon name="share-social-outline"></ion-icon></span>
-                    <span class="ln-menu__label">Zdieľať</span>
-                </li>
-                <li class="ln-menu__item" style="--i:#FF4D4D; --j:#FFAAAA;">
+              <a href="#contact">
+                <li class="ln-menu__item" style="--i:#D4AF37; --j:#FFAAAA;">
                     <span class="ln-menu__icon"><ion-icon name="mail-outline"></ion-icon></span>
                     <span class="ln-menu__label">Kontakt</span>
                 </li>
+              </a>  
             </ul>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Čo sa  <span class="gradient-text">Naučíte</span></h2>
-                <p class="section-subtitle">
-                    Objavte našu škálu prémiových nechtových procedúr navrhnutých na pozdvihnutie vášho štýlu a zážitku zo starostlivosti o seba.
-                </p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">✧</div>
-                    <h3 class="service-title">Anatómia a starostlivosť</h3>
-                    <p class="service-description">
-                      Kompletné znalosti o nechtoch a pokožke.
-                    </p>
-                </div>
-                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">✧</div>
-                    <h3 class="service-title">Modelácia a zdobenie</h3>
-                    <p class="service-description">
-                      Gélové nechty, polygél, pilovanie a zdobenie.
-                    </p>
-                </div>
-                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">✧</div>
-                    <h3 class="service-title">Podmienky prevádzkovania</h3>
-                    <p class="service-description">
-                      Právne náležitosti pre otvorenie vlastného salónu.
-                    </p>
-                </div>
-            </div>
+   <section id="services">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">Čo sa <span class="gradient-text">Naučíte</span></h2>
+      <p class="section-subtitle">
+        Objavte našu škálu prémiových nechtových procedúr navrhnutých na pozdvihnutie vášho štýlu a zážitku zo starostlivosti o seba.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-icon">
+          <ion-icon name="body-outline"></ion-icon>
         </div>
-    </section>
+        <h3 class="service-title">Anatómia a starostlivosť</h3>
+        <p class="service-description">
+          Kompletné znalosti o nechtoch a pokožke.
+        </p>
+      </div>
+      <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon">
+          <ion-icon name="color-palette-outline"></ion-icon>
+        </div>
+        <h3 class="service-title">Modelácia a zdobenie</h3>
+        <p class="service-description">
+          Gélové nechty, polygél, pilovanie a zdobenie.
+        </p>
+      </div>
+      <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-icon">
+          <ion-icon name="document-text-outline"></ion-icon>
+        </div>
+        <h3 class="service-title">Podmienky prevádzkovania</h3>
+        <p class="service-description">
+          Právne náležitosti pre otvorenie vlastného salónu.
+        </p>
+      </div>
+      <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-icon">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <h3 class="service-title">Hygiena a bezpečnosť</h3>
+        <p class="service-description">
+          Štandardy sterility, správne postupy dezinfekcie a preventívne opatrenia.
+        </p>
+      </div>
+      <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-icon">
+          <ion-icon name="trending-up-outline"></ion-icon>
+        </div>
+        <h3 class="service-title">Marketingové stratégie</h3>
+        <p class="service-description">
+          Budovanie značky, sociálne siete a získavanie klientely pre váš salón.
+        </p>
+      </div>
+      <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-icon">
+          <ion-icon name="ribbon-outline"></ion-icon>
+        </div>
+        <h3 class="service-title">Certifikácia</h3>
+        <p class="service-description">
+          Získanie oficiálneho certifikátu a potrebných oprávnení pre prax.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Gallery Section -->
     <section id="gallery">
@@ -2206,25 +2252,25 @@ section:nth-child(even) .section-anchor {
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://i.postimg.cc/26zbZVbp/479240129-18342119566147007-2423112908297810546-n.jpg" alt="Dizajn nechtov" class="gallery-image" />
+                    <img src="https://i.postimg.cc/26zbZVbp/479240129-18342119566147007-2423112908297810546-n.jpg" alt="Dizajn nechtov" class="gallery-image" style="border-radius: 8px;"/>
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">Moderná francúzska</h3>
                     </div>
                 </div>
                 <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://i.postimg.cc/QCvd0ttd/480608723-18342604948147007-5582459788108660723-n.jpg" alt="Dizajn nechtov" class="gallery-image" />
+                    <img src="https://i.postimg.cc/QCvd0ttd/480608723-18342604948147007-5582459788108660723-n.jpg" alt="Dizajn nechtov" class="gallery-image" style="border-radius: 8px;" />
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">Chrómová úprava</h3>
                     </div>
                 </div>
                 <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://i.postimg.cc/Zn4GZzMx/476383675-18341456293147007-4590208135480164710-n.jpg" alt="Dizajn nechtov" class="gallery-image" />
+                    <img src="https://i.postimg.cc/Zn4GZzMx/476383675-18341456293147007-4590208135480164710-n.jpg" alt="Dizajn nechtov" class="gallery-image" style="border-radius: 8px;" />
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">Abstraktné umenie</h3>
                     </div>
                 </div>
                 <div class="gallery-item glass-card" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://i.postimg.cc/GmgzmnHx/473703485-18339258136147007-1779613595028342550-n.jpg" alt="Dizajn nechtov" class="gallery-image" />
+                    <img src="https://i.postimg.cc/GmgzmnHx/473703485-18339258136147007-1779613595028342550-n.jpg" alt="Dizajn nechtov" class="gallery-image" style="border-radius: 8px;" />
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">Minimalistické drahokamy</h3>
                     </div>
@@ -2412,26 +2458,43 @@ section:nth-child(even) .section-anchor {
               </p>
           </div>
           <div class="contact-info">
+            <a href="https://www.google.com/maps/search/?api=1&query=Špitálska+2,+071+01+Michalovce,+Slovensko" target="_blank" class="contact-card-link">
               <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="100">
-                  <div class="contact-icon">✦</div>
-                  <h3 class="contact-title">Adresa</h3>
-                  <p class="contact-detail">Módna Ulica 123, Luxusná Štvrť, Bratislava 85101</p>
+                <div class="contact-icon">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+                <h3 class="contact-title">Adresa</h3>
+                <p class="contact-detail">Špitálska 2/071 01, 071 01 Michalovce, Slovensko</p>
               </div>
+            </a>
+            
+            <a href="mailto:rezervacie@xxxxxxxx.sk" class="contact-card-link">
               <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="200">
-                  <div class="contact-icon">✦</div>
-                  <h3 class="contact-title">E-mail</h3>
-                  <p class="contact-detail">rezervacie@luxenails.sk</p>
+                <div class="contact-icon">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+                <h3 class="contact-title">E-mail</h3>
+                <p class="contact-detail">rezervacie@xxxxxxxx.sk</p>
               </div>
+            </a>
+            
+            <a href="tel:+421918884116" class="contact-card-link">
               <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="300">
-                  <div class="contact-icon">✦</div>
-                  <h3 class="contact-title">Telefón</h3>
-                  <p class="contact-detail">+421 901 234 567</p>
+                <div class="contact-icon">
+                  <ion-icon name="call-outline"></ion-icon>
+                </div>
+                <h3 class="contact-title">Telefón</h3>
+                <p class="contact-detail">+421 918 884 116</p>
               </div>
-              <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="400">
-                  <div class="contact-icon">✦</div>
-                  <h3 class="contact-title">Otváracie hodiny</h3>
-                  <p class="contact-detail">Pon-Sob: 10:00 - 20:00<br>Ned: 12:00 - 18:00</p>
+            </a>
+            
+            <div class="contact-item glass-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="contact-icon">
+                <ion-icon name="time-outline"></ion-icon>
               </div>
+              <h3 class="contact-title">Otváracie hodiny</h3>
+              <p class="contact-detail">Pon-Sob: 10:00 - 20:00<br>Ned: 12:00 - 18:00</p>
+            </div>
           </div>
       </div>
   </section>
@@ -2463,10 +2526,6 @@ section:nth-child(even) .section-anchor {
                     </ul>
                 </div>
         
-                
-        
-               
-        
                 <!-- Social Networks Column -->
                 <div class="footer-column">
                     <h4 class="footer-heading">Sociálne siete</h4>
@@ -2479,11 +2538,9 @@ section:nth-child(even) .section-anchor {
                 </div>
             </div>
         
-            
-        
             <!-- Copyright Section -->
             <div class="footer-copyright">
-                <p class="copyright-text">Autorské práva ©2025 Všetky práva vyhradené | Made By <strong><a href="https://www.pnhmedia.sk">PNH Media</a> </strong></p>
+                <p class="copyright-text">Autorské práva ©2025 Všetky práva vyhradené | Made By <strong><a href="https://www.pnhmedia.sk">PNH MEDIA</a> </strong></p>
                 <div class="footer-legal">
                     <a href="#">Podmienky</a>
                     <a href="#">Súkromie</a>
@@ -2508,6 +2565,21 @@ section:nth-child(even) .section-anchor {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
 <script>
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.getElementById('hero');
+    const bgUrl = heroSection.getAttribute('data-bg');
+    if (bgUrl) {
+      heroSection.style.backgroundImage = `url(${bgUrl})`;
+      heroSection.style.backgroundSize = 'cover';
+      heroSection.style.backgroundPosition = 'center';
+      heroSection.style.backgroundRepeat = 'no-repeat';
+    }
+  });
+
+
 // Page loader animation
 function showLoader() {
     $('.page-loader').removeClass('is-invisible');
