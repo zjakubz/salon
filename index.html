@@ -2922,6 +2922,23 @@ section:nth-child(even) .author-title {
     margin-bottom: 10px;
   }
 }
+
+
+
+/* CSS for header transition on scroll */
+.header-scroll-transition {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Ensure the header stays visible when menu is open regardless of scroll */
+.nav[data-nav="open"] ~ .header.header-hidden {
+  transform: translateY(0);
+}
   </style>
 
 <!-- Adding AOS library -->
@@ -4121,7 +4138,59 @@ document.addEventListener('DOMContentLoaded', function() {
     showCookieBanner();
   }
 });
-
+// Script to hide header when scrolling down and show when scrolling up
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.header');
+  let lastScrollTop = 0;
+  let scrollTimer;
+  const scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+  
+  // Add a new class to the header for transition
+  if (header) {
+    header.classList.add('header-scroll-transition');
+  }
+  
+  // Function to handle scroll event
+  function handleScroll() {
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Ignore small scroll amounts
+    if (Math.abs(lastScrollTop - currentScrollTop) < scrollThreshold) {
+      return;
+    }
+    
+    // Scrolling down and not at the top of the page
+    if (currentScrollTop > lastScrollTop && currentScrollTop > 50) {
+      header.classList.add('header-hidden');
+    } 
+    // Scrolling up
+    else if (currentScrollTop < lastScrollTop) {
+      header.classList.remove('header-hidden');
+    }
+    
+    lastScrollTop = currentScrollTop;
+    
+    // Always clear previous timeout
+    clearTimeout(scrollTimer);
+    
+    // Set a timeout to show header after scrolling stops
+    scrollTimer = setTimeout(function() {
+      header.classList.remove('header-hidden');
+    }, 1500); // Show header after 1.5s of no scrolling
+  }
+  
+  // Add scroll event listener with throttling for better performance
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+});
     
 </script>
 <script type="application/ld+json">
