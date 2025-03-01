@@ -2724,29 +2724,7 @@ section:nth-child(even) .author-title {
   background-color: var(--dark-accent);
 }
 
-.success-animation::before,
-.success-animation::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(212, 175, 55, 0.05);
-}
 
-.success-animation::before {
-  width: 120px;
-  height: 120px;
-  top: -30px;
-  right: -30px;
-  animation: floatAnimation 8s infinite ease-in-out;
-}
-
-.success-animation::after {
-  width: 160px;
-  height: 160px;
-  bottom: -40px;
-  left: -40px;
-  animation: floatAnimation 12s infinite ease-in-out reverse;
-}
 
 /* Animations */
 @keyframes successCardAppear {
@@ -2984,7 +2962,7 @@ section:nth-child(even) .author-title {
   <div class="cookie-content">
     <p class="cookie-text">Táto stránka používa <strong>cookies</strong> na zlepšenie Vášho zážitku z prehliadania a poskytovanie lepších služieb. Kliknutím na "Prijať všetky" súhlasíte s používaním cookies.</p>
     <div class="cookie-buttons">
-      <a href="/cookies-policy" class="cookie-more">Viac informácií</a>
+      
       <button type="button" class="cookie-btn decline" id="cookieDecline">Len nevyhnutné</button>
       <button type="button" class="cookie-btn accept" id="cookieAccept">Prijať všetky</button>
     </div>
@@ -3006,7 +2984,7 @@ section:nth-child(even) .author-title {
               
                 
                 <!-- Hamburger menu button in header -->
-                <one role="button1" data-menu-toggle=""  aria-expanded="false">
+                <a role="button1" data-menu-toggle=""  aria-expanded="false">
                     <div class="icon-wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -3014,7 +2992,7 @@ section:nth-child(even) .author-title {
                             <line x1="3" y1="18" x2="21" y2="18"></line>
                         </svg>
                     </div>
-                </one>
+                  </a>
             </nav>
         </div>
     </header>
@@ -3027,14 +3005,14 @@ section:nth-child(even) .author-title {
       <h3>MK<span class="gradient-text">Beauty</span></h3>
       <p>Prémiové nechtové umenie</p>
       <!-- Simplified close button - only X icon -->
-      <buttonone role="button" data-menu-toggle="" class="menu-close" aria-expanded="true">
+      <a role="button" data-menu-toggle="" class="menu-close" aria-expanded="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
              viewBox="0 0 24 24" fill="none" stroke="currentColor" 
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
-      </buttonone>
+      </a>
     </div>
     
     <ul class="menu-list">
@@ -3641,8 +3619,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Update clock with Slovak date format
-    updateTime();
-    setInterval(updateTime, 60000); // Update every minute
+     // Update every minute
     
     // Add scroll event listener for header
     window.addEventListener('scroll', function() {
@@ -3651,60 +3628,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Time and date display in Slovak format
-function updateTime() {
-    const now = new Date();
-    
-    // Update time display
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    document.getElementById('timeDisplay').textContent = `${hours}:${minutes}`;
-    
-    // Update date display with Slovak days of the week
-    const days = ['Ned', 'Pon', 'Uto', 'Str', 'Štv', 'Pia', 'Sob'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
-    
-    const dayOfWeek = days[now.getDay()];
-    const month = months[now.getMonth()];
-    const dayOfMonth = now.getDate();
-    
-    document.getElementById('dateDisplay').textContent = `${dayOfWeek}, ${dayOfMonth}. ${month}`;
-}
 
-// Menu initialization
-function initMenu() {
-    let navWrap = document.querySelector('.nav');
-    let overlay = navWrap.querySelector('.overlay');
-    let menu = navWrap.querySelector('.menu');
-    let menuToggles = document.querySelectorAll('[data-menu-toggle]');
-    let tl = gsap.timeline({ paused: true });
-    
-    tl.fromTo(menu, { x: '100%' }, { x: '0%', duration: 0.7, ease: "power2.out" });
-    tl.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
-    
-    const openNav = () => {
-        navWrap.setAttribute('data-nav', 'open');
-        tl.play(0);
-    }
-    
-    const closeNav = () => {
-        navWrap.setAttribute('data-nav', 'closed');
-        tl.reverse();
-    }
-    
-    menuToggles.forEach((toggle) => {
-        toggle.addEventListener('click', () => {
-            const state = navWrap.getAttribute('data-nav');
-            state === 'open' ? closeNav() : openNav();
-        });
-    });
-    
-    document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && navWrap.getAttribute('data-nav') === 'open') {
-            closeNav();
-        }
-    });
-}
+
+
 
 // Testimonial slider with improved touch support
 function initTestimonialSlider() {
