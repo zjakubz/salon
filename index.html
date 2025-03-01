@@ -1,15 +1,76 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MK Beauty | Beauty MK Academy</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- SEO meta tags -->
+<title>Beauty MK Academy | Prémiové nechtové umenie a kurzy</title>
+<meta name="description" content="Beauty MK Academy ponúka prémiové nechtové procedúry a akreditované kurzy. Naučte sa zručnosti, ktoré Vám umožnia pracovať v oblasti krásy alebo otvoriť si vlastný salón.">
+<meta name="keywords" content="nechtový salón, beauty academy, kurzy nechtového dizajnu, modelácia nechtov, Michalovce">
+
+<!-- Open Graph meta tags for social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.mkbeautyacademy.sk/">
+<meta property="og:title" content="Beauty MK Academy | Prémiové nechtové umenie">
+<meta property="og:description" content="Akreditované kurzy nechtového dizajnu pre Vašu kariéru v beauty business.">
+<meta property="og:image" content="https://www.mkbeautyacademy.sk/images/og-image.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beauty MK Academy | Prémiové nechtové umenie">
+<meta name="twitter:description" content="Akreditované kurzy nechtového dizajnu pre Vašu kariéru v beauty business.">
+<meta name="twitter:image" content="https://www.mkbeautyacademy.sk/images/twitter-image.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.mkbeautyacademy.sk/">
+
+<!-- Language tags -->
+<meta property="og:locale" content="sk_SK">
+<link rel="alternate" href="https://www.mkbeautyacademy.sk/en/" hreflang="en">
+
+<!-- Preload critical assets -->
+<link rel="preload" href="fonts/poppins-v20-latin-ext_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-v20-latin-ext_latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/main.css" as="style">
+<link rel="preload" href="js/main.js" as="script">
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
+
+  <!-- Add these lines in the <head> section of your HTML -->
+
+<!-- Basic favicon -->
+<link rel="icon" href="favicon.ico" sizes="any">
+
+<!-- Apple Touch Icon (for iOS devices) -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- For Safari on macOS -->
+<link rel="mask-icon" href="safari-pinned-tab.svg" color="#D4AF37">
+
+<!-- Modern favicon format with multiple sizes -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+<!-- Web Manifest for PWA capabilities -->
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Microsoft Tiles for Windows -->
+<meta name="msapplication-TileColor" content="#D4AF37">
+<meta name="msapplication-config" content="browserconfig.xml">
+
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#D4AF37">
+
+
+</head>
   <style>
+
     /* Reset & Base Styles */
 *, *::before, *::after {
   margin: 0;
@@ -2767,8 +2828,135 @@ section:nth-child(even) .author-title {
   }
 }
 
+/* Modern Cookie Consent Banner Styling */
+.cookie-consent {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  width: 90%;
+  max-width: 680px;
+  z-index: 9998;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cookie-consent.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cookie-text {
+  color: var(--light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cookie-text strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.cookie-btn {
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+}
+
+.cookie-btn.accept {
+  background: linear-gradient(45deg, var(--primary), var(--primary-light));
+  color: var(--dark);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.cookie-btn.accept:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+.cookie-btn.decline {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.cookie-btn.decline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  color: var(--light);
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cookie-more {
+  color: var(--light-muted);
+  font-size: 13px;
+  text-decoration: underline;
+  margin-right: auto;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cookie-more:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 576px) {
+  .cookie-consent {
+    width: calc(100% - 30px);
+    padding: 20px;
+    bottom: 15px;
+  }
+  
+  .cookie-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .cookie-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .cookie-more {
+    margin: 0 auto;
+    order: -1;
+    margin-bottom: 10px;
+  }
+}
   </style>
-</head>
+
 <!-- Adding AOS library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
@@ -2790,6 +2978,18 @@ section:nth-child(even) .author-title {
         </div>
     </div>
 
+
+    <!-- Add this at the end of your body tag -->
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-content">
+    <p class="cookie-text">Táto stránka používa <strong>cookies</strong> na zlepšenie Vášho zážitku z prehliadania a poskytovanie lepších služieb. Kliknutím na "Prijať všetky" súhlasíte s používaním cookies.</p>
+    <div class="cookie-buttons">
+      <a href="/cookies-policy" class="cookie-more">Viac informácií</a>
+      <button type="button" class="cookie-btn decline" id="cookieDecline">Len nevyhnutné</button>
+      <button type="button" class="cookie-btn accept" id="cookieAccept">Prijať všetky</button>
+    </div>
+  </div>
+</div>
     <!-- Icon Navigation Definitions -->
     
 
@@ -3912,6 +4112,142 @@ document.addEventListener("DOMContentLoaded", function() {
         });
       }
     });
+
+
+// Cookie Consent Management
+document.addEventListener('DOMContentLoaded', function() {
+  const cookieConsent = document.getElementById('cookieConsent');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const cookieDecline = document.getElementById('cookieDecline');
+  
+  // Check if user has already made a choice
+  const cookieChoice = localStorage.getItem('cookieConsent');
+  
+  // Function to show the cookie banner (after loader is completed)
+  function showCookieBanner() {
+    // Check if user has already made a choice
+    if (cookieChoice === null) {
+      // Wait for the page loader to complete before showing the cookie banner
+      // The timeout should match your loader's duration + a small buffer
+      setTimeout(() => {
+        cookieConsent.classList.add('active');
+      }, 2500); // Adjust this timing to match your loader's completion time
+    }
+  }
+  
+  // Handle Accept button click
+  if (cookieAccept) {
+    cookieAccept.addEventListener('click', function() {
+      // Set cookie acceptance in localStorage
+      localStorage.setItem('cookieConsent', 'accepted');
+      
+      // Allow all cookies and tracking
+      enableAllCookies();
+      
+      // Hide the banner with animation
+      cookieConsent.classList.remove('active');
+      
+      // Optional: You can trigger your analytics setup here
+      // initializeAnalytics();
+    });
+  }
+  
+  // Handle Decline button click
+  if (cookieDecline) {
+    cookieDecline.addEventListener('click', function() {
+      // Set cookie preference in localStorage
+      localStorage.setItem('cookieConsent', 'declined');
+      
+      // Only allow essential cookies
+      enableEssentialCookiesOnly();
+      
+      // Hide the banner with animation
+      cookieConsent.classList.remove('active');
+    });
+  }
+  
+  // Function to enable all cookies
+  function enableAllCookies() {
+    // Implement your cookie enabling logic here
+    console.log('All cookies accepted');
+    // For example, initializing Google Analytics
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'granted'
+      });
+    }
+  }
+  
+  // Function to enable only essential cookies
+  function enableEssentialCookiesOnly() {
+    // Implement your essential cookies only logic here
+    console.log('Only essential cookies accepted');
+    // For example, updating Google Analytics consent
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'denied'
+      });
+    }
+  }
+  
+  // If user already accepted cookies, enable them
+  if (cookieChoice === 'accepted') {
+    enableAllCookies();
+  } else if (cookieChoice === 'declined') {
+    enableEssentialCookiesOnly();
+  } else {
+    // Show the banner if no choice has been made
+    showCookieBanner();
+  }
+});
+
+    
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Beauty MK Academy",
+  "image": "https://www.mkbeautyacademy.sk/images/beauty-mk-academy.jpg",
+  "url": "https://www.mkbeautyacademy.sk",
+  "telephone": "+421918884116",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Špitálska 2",
+    "addressLocality": "Michalovce",
+    "postalCode": "07101",
+    "addressCountry": "SK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.7547938,
+    "longitude": 21.9149033
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "12:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61570815930198",
+    "https://www.instagram.com/beautym_nail_academy/"
+  ]
+}
 </script>
 </body>
 </html>
