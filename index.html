@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LuxeNails | Premium Nail Artistry</title>
+  <title>MK Beauty | Beauty MK Academy</title>
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -2587,7 +2587,185 @@ section:nth-child(even) .author-title {
   width: 100%;
 }
 
+/* Stylish success message styling */
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: successCardAppear 0.6s forwards cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.success-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, var(--primary), var(--primary-light));
+  color: var(--dark);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+  transform: scale(0);
+  animation: successIconAppear 0.5s 0.2s forwards cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.success-icon svg {
+  width: 40px;
+  height: 40px;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCheck 1s 0.6s forwards cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.success-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s 0.4s forwards cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.success-text {
+  font-size: 1.1rem;
+  color: var(--light-muted);
+  max-width: 80%;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s 0.5s forwards cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1.6;
+}
+
+.success-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: var(--dark-accent);
+}
+
+.success-animation::before,
+.success-animation::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.success-animation::before {
+  width: 120px;
+  height: 120px;
+  top: -30px;
+  right: -30px;
+  animation: floatAnimation 8s infinite ease-in-out;
+}
+
+.success-animation::after {
+  width: 160px;
+  height: 160px;
+  bottom: -40px;
+  left: -40px;
+  animation: floatAnimation 12s infinite ease-in-out reverse;
+}
+
+/* Animations */
+@keyframes successCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes successIconAppear {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes drawCheck {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, 10px);
+  }
+  50% {
+    transform: translate(5px, -5px);
+  }
+  75% {
+    transform: translate(-10px, 5px);
+  }
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .success-title {
+    font-size: 1.5rem;
+  }
+  
+  .success-text {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+  
+  .success-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .success-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+}
 
   </style>
 </head>
@@ -2621,7 +2799,7 @@ section:nth-child(even) .author-title {
             <nav class="nav-row">
                 <!-- Logo on the left -->
                 <a href="#" aria-label="home" class="nav-logo-row">
-                    <div class="nav-logo__wordmark"><span class="gradient-text">Luxe</span>Nails</div>
+                    <div class="nav-logo__wordmark"><span class="gradient-text">MK</span>Beauty</div>
                 </a>
                 
                 <!-- Time Display with Slovak calendar -->
@@ -2646,7 +2824,7 @@ section:nth-child(even) .author-title {
   <div class="overlay" data-menu-toggle=""></div>
   <nav class="menu">
     <div class="menu-header">
-      <h3>Luxe<span class="gradient-text">Nails</span></h3>
+      <h3>MK<span class="gradient-text">Beauty</span></h3>
       <p>Prémiové nechtové umenie</p>
       <!-- Simplified close button - only X icon -->
       <buttonone role="button" data-menu-toggle="" class="menu-close" aria-expanded="true">
@@ -2758,7 +2936,7 @@ section:nth-child(even) .author-title {
         </a>
       </div>
       <div class="menu-copyright">
-        &copy; 2025 Beauty M Academy. Všetky práva vyhradené.
+        &copy; 2025 Beauty MK Academy. Všetky práva vyhradené.
       </div>
     </div>
   </nav>
@@ -2770,7 +2948,7 @@ section:nth-child(even) .author-title {
     <!-- Hero Section -->
     <section id="hero"    data-bg="https://i.postimg.cc/xd3HfMft/image.jpg">
       <div class="hero-content">
-          <h1 class="hero-title">Akreditované kurzy Beauty M Academy</h1>
+          <h1 class="hero-title">Akreditované kurzy Beauty MK Academy</h1>
           <p class="hero-description">
             Chcete pracovať v oblasti krásy, získať stabilné zamestnanie alebo si otvoriť vlastný salón?
             Náš kurz je ideálnym prvým krokom.
@@ -2929,7 +3107,7 @@ section:nth-child(even) .author-title {
     <div class="section-header" data-aos="fade-up">
       <h2 class="section-title">Referencie <span class="gradient-text">Klientov</span></h2>
       <p class="section-subtitle">
-        Pozrite si, čo hovoria naši klienti o svojich skúsenostiach v Beauty M Academy.
+        Pozrite si, čo hovoria naši klienti o svojich skúsenostiach v Beauty MK Academy.
       </p>
     </div>
     
@@ -2947,10 +3125,10 @@ section:nth-child(even) .author-title {
             <div class="testimonial-wrapper glass-card">
               <div class="quote-icon">❝</div>
               <p class="testimonial-text">
-                Kurz predbehol moje očakávania. Lektorky boli profesionálne a venovali sa nám individuálne. Teraz mám vlastný salón a stále používam techniky, ktoré som sa naučila v Beauty M Academy.
+                Kurz predbehol moje očakávania. Lektorky boli profesionálne a venovali sa nám individuálne. Teraz mám vlastný salón a stále používam techniky, ktoré som sa naučila v Beauty MK Academy.
               </p>
               <div class="testimonial-author">
-                <img src="https://i.postimg.cc/T1cDYWNn/pexels-andrea-piacquadio-3769021.jpg" alt="Klient" class="author-image" />
+                <img src="https://i.postimg.cc/43sj9xB3/image.png" alt="Klient" class="author-image" />
                 <div class="author-details">
                   <div class="author-name">Sofia K.</div>
                   <div class="author-title">Absolventka kurzu</div>
@@ -2967,7 +3145,7 @@ section:nth-child(even) .author-title {
                 Som nesmierne vďačná za dôkladný prístup a profesionalitu celého tímu. Naučili ma nielen technické zručnosti, ale aj ako viesť úspešné podnikanie. Odporúčam každému, kto sa chce v tomto odbore realizovať.
               </p>
               <div class="testimonial-author">
-                <img src="https://i.postimg.cc/8kbJd0T4/pexels-andrea-piacquadio-762020.jpg" alt="Klient" class="author-image" />
+                <img src="https://i.postimg.cc/vTndvS98/image.png" alt="Klient" class="author-image" />
                 <div class="author-details">
                   <div class="author-name">Emma J.</div>
                   <div class="author-title">Majiteľka salónu</div>
@@ -2981,10 +3159,10 @@ section:nth-child(even) .author-title {
             <div class="testimonial-wrapper glass-card">
               <div class="quote-icon">❝</div>
               <p class="testimonial-text">
-                Ako úplný začiatočník som sa bála, že to nezvládnem, ale trpezlivosť a podpora od tímu Beauty M Academy bola úžasná. Dnes pracujem v prestížnom salóne a vďačím za to kvalitnej príprave z akadémie.
+                Ako úplný začiatočník som sa bála, že to nezvládnem, ale trpezlivosť a podpora od tímu Beauty MK Academy bola úžasná. Dnes pracujem v prestížnom salóne a vďačím za to kvalitnej príprave z akadémie.
               </p>
               <div class="testimonial-author">
-                <img src="https://i.postimg.cc/T2BjN0Tm/pexels-andrea-piacquadio-733872.jpg" alt="Klient" class="author-image" />
+                <img src="https://i.postimg.cc/W3JKRq4X/image.jpg" alt="Klient" class="author-image" />
                 <div class="author-details">
                   <div class="author-name">Olivia M.</div>
                   <div class="author-title">Nail technička</div>
@@ -2998,10 +3176,10 @@ section:nth-child(even) .author-title {
             <div class="testimonial-wrapper glass-card">
               <div class="quote-icon">❝</div>
               <p class="testimonial-text">
-                Praktické cvičenia a moderné techniky, ktoré nás naučili, mi okamžite pomohli v mojej kariére. Mnoho klientov ma vyhľadáva práve pre tieto špeciálne zručnosti, ktoré som získala v Beauty M Academy.
+                Praktické cvičenia a moderné techniky, ktoré nás naučili, mi okamžite pomohli v mojej kariére. Mnoho klientov ma vyhľadáva práve pre tieto špeciálne zručnosti, ktoré som získala v Beauty MK Academy.
               </p>
               <div class="testimonial-author">
-                <img src="https://i.postimg.cc/kGzD7P7B/pexels-andrea-piacquadio-774909.jpg" alt="Klient" class="author-image" />
+                <img src="https://i.postimg.cc/mg58bZJq/image.png" alt="Klient" class="author-image" />
                 <div class="author-details">
                   <div class="author-name">Isabella C.</div>
                   <div class="author-title">Profesionálna vizážistka</div>
@@ -3015,10 +3193,10 @@ section:nth-child(even) .author-title {
             <div class="testimonial-wrapper glass-card">
               <div class="quote-icon">❝</div>
               <p class="testimonial-text">
-                Certifikát z Beauty M Academy mi otvoril dvere do prestížnych salónov. Investícia do vzdelania sa mi mnohonásobne vrátila a odporúčam tento kurz každému, kto chce v beauty biznise uspieť.
+                Certifikát z Beauty MK Academy mi otvoril dvere do prestížnych salónov. Investícia do vzdelania sa mi mnohonásobne vrátila a odporúčam tento kurz každému, kto chce v beauty biznise uspieť.
               </p>
               <div class="testimonial-author">
-                <img src="https://i.postimg.cc/BvKbRYrC/pexels-andrea-piacquadio-3777943.jpg" alt="Klient" class="author-image" />
+                <img src="https://i.postimg.cc/vHp4MpXh/image.png" alt="Klient" class="author-image" />
                 <div class="author-details">
                   <div class="author-name">Zoe W.</div>
                   <div class="author-title">Beauty podnikateľka</div>
@@ -3072,7 +3250,10 @@ section:nth-child(even) .author-title {
                 <button type="submit"><span>Odeslat</span></button>
             </form>
         </div>
+        
     </div>
+
+    
   
   
 
@@ -3135,7 +3316,7 @@ section:nth-child(even) .author-title {
           <div class="footer-content">
               <!-- Brand Column -->
               <div class="footer-column brand-column">
-                  <h3 class="footer-logo">LUXENAILS</h3>
+                  <h3 class="footer-logo">Beauty MK Academy</h3>
                   <p class="footer-description">
                       Prémiový nechtový salón ponúkajúci luxusné služby s odbornosťou a eleganciou. 
                       Naši zruční umelci vytvárajú úžasné dizajny pre každú príležitosť.
@@ -3660,36 +3841,56 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function() {
   const contactForm = document.getElementById("contactForm");
 
-  contactForm.addEventListener("submit", function(e) {
-    e.preventDefault(); // Prevent the default form submission
+  if (contactForm) {
+    contactForm.addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent the default form submission
 
-    const formData = new FormData(contactForm);
+      const formData = new FormData(contactForm);
 
-    fetch(contactForm.action, {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        // Replace the form's content with the success message
-        contactForm.innerHTML = '<p style="text-align:center; font-size:1.2rem; padding:1rem;">Email odeslán</p>';
-      } else {
-        // If the server returns an error, try to extract error messages.
-        response.json().then(data => {
-          if (data.hasOwnProperty("errors")) {
-            alert(data.errors.map(error => error.message).join(", "));
-          } else {
-            alert("Odeslání se nezdařilo, zkuste to prosím znovu.");
+      fetch(contactForm.action, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          // Replace the form with our beautifully styled success message
+          contactForm.innerHTML = `
+            <div class="success-message">
+              <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3 class="success-title">Email odeslán</h3>
+              <p class="success-text">Děkujeme za Vaši zprávu. Brzy se Vám ozveme.</p>
+              <div class="success-animation"></div>
+            </div>
+          `;
+          
+          // Animation for success message
+          const successIcon = contactForm.querySelector('.success-icon');
+          if (successIcon) {
+            successIcon.classList.add('animate');
           }
-        });
-      }
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      alert("Odeslání se nezdařilo, zkuste to prosím znovu.");
+        } else {
+          // Handle server errors
+          response.json().then(data => {
+            if (data.hasOwnProperty("errors")) {
+              alert(data.errors.map(error => error.message).join(", "));
+            } else {
+              alert("Odeslání se nezdařilo, zkuste to prosím znovu.");
+            }
+          });
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Odeslání se nezdařilo, zkuste to prosím znovu.");
+      });
     });
-  });
+  }
 });
 
 
